@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [sharecode, setShareCode] =  useState(''); 
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
   const registerUser = (event) => {
     event.preventDefault();
 
+    setShareCode(uuidv4()); 
+
     dispatch({
       type: 'REGISTER',
       payload: {
         username: username,
         password: password,
+        sharecode: sharecode
       },
     });
   }; // end registerUser
