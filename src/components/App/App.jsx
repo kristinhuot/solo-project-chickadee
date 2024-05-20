@@ -15,10 +15,14 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import MyNest from '../MyNest/MyNest';
+import MyCarePreferences from '../MyCarePreferences/MyCarePreferences'
+import MyFlights from '../MyFlights/MyFlights';
+import AddFlights from '../AddFlights/AddFlights';
+import AddToMyFlock from '../AddToMyFlock/AddToMyFlock';
 
 import './App.css';
 
@@ -39,33 +43,19 @@ function App() {
           {/* Visiting localhost:5173 will redirect to localhost:5173/home */}
           <Redirect exact from="/" to="/home" />
 
-          {/* Visiting localhost:5173/about will show the about page. */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
-            <AboutPage />
-          </Route>
-
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:5173/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:5173/user */}
+
+ {/* Routes for Log-in, Registration, Home */}
+
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
             path="/user"
           >
             <UserPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
           </ProtectedRoute>
 
           <Route
@@ -108,6 +98,62 @@ function App() {
               // Otherwise, show the Landing page
               <LandingPage />
             }
+          </Route>
+
+ {/* Routes for NavBar */}
+
+          <ProtectedRoute
+            // logged in shows My Nest page else shows LoginPage
+            exact
+            path="/my_nest"
+          >
+            <MyNest/>
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            // logged in shows My Care Preferences page else shows LoginPage
+            exact
+            path="/my_care_preferences"
+          >
+            <MyCarePreferences/>
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            // logged in shows My Flights page else shows LoginPage
+            exact
+            path="/my_flights"
+          >
+            <MyFlights/>
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            // logged in shows Add Flights page else shows LoginPage
+            exact
+            path="/add_flights"
+          >
+            <AddFlights/>
+          </ProtectedRoute>
+            
+
+          <ProtectedRoute
+            // logged in shows Add to Flock page else shows LoginPage
+            exact
+            path="/add_to_flock"
+          >
+            <AddToMyFlock/>
+          </ProtectedRoute>
+
+ 
+          {/* Visiting localhost:5173/about will show the about page. */}
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/about"
+          >
+            <AboutPage />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}

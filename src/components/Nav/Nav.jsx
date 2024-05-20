@@ -28,17 +28,33 @@ function Nav() {
               Home
             </Link>
 
-            <Link className="navLink" to="/info">
-              Info Page
+            <Link className="navLink" to="/my_nest">
+              My Nest
+            </Link>
+
+            <Link className="navLink" to="/my_care_preferences">
+              My Care Preferences
+            </Link>
+
+            <Link className="navLink" to="/my_flights">
+              My Flights
+            </Link>
+
+            <Link className="navLink" to="/add_flights">
+              Add a Flight 
+            </Link>
+
+            <Link className="navLink" to="/add_to_flock">
+              Add to My Flock 
+            </Link>
+
+            <Link className="navLink" to="/about">
+              About
             </Link>
 
             <LogOutButton className="navLink" />
           </>
         )}
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
       </div>
     </div>
   );
