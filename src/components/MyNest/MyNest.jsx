@@ -37,11 +37,9 @@ return (
     <form>
         <TextField onChange={(e) => setPronouns(e.target.value)} value={pronouns} label="Pronouns"/>
     </form>
-    {/* <Container components={['DatePicker']}> */}
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker onChange={(e) => setBirthday(e.target.value)} value={birthday} label="Birthday" />
         </LocalizationProvider>
-    {/* </Container> */}
     <form>
         <TextField onChange={(e) => setLocation(e.target.value)} value={location} label="Location"/>
     </form>
