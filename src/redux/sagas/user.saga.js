@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, call } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
@@ -25,19 +25,15 @@ function* fetchUser() {
 }
 
 function* setNestInputs(action){
-  console.log('action.payload is', action.payload);
+  console.log('action.payload is', action.payload)
   try {
-   const response = yield axios.put('/api/user', action.payload)
-
-    fetchUser();  
+    yield axios.put('/api/user', action.payload)
+    yield call (fetchUser)
 
   } catch(error) {
     console.log('Setting Nest Inputs failed', error);
   }
-
-
 }
-
 
 
 

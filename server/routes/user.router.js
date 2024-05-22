@@ -8,10 +8,8 @@ const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
 
-
+// Updates user data after registering and completing the My Nest inputs
 router.put('/', (req, res) => {
-  // console.log('req.user.id is', req.user.id);
-  // console.log('req.body is', req.body);
   const name = req.body.name; 
   const pronouns = req.body.pronouns;
   const location = req.body.location; 
