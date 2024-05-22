@@ -10,18 +10,23 @@ const router = express.Router();
 
 // Updates user data after registering and completing the My Nest inputs
 router.put('/', (req, res) => {
+// console.log('req.body.birthday looks like this', req.body.birthday);
+// console.log('req.body looks like this', req.body);
+
   const name = req.body.name; 
   const pronouns = req.body.pronouns;
   const location = req.body.location; 
   const photo = req.body.photo
   const userID = req.user.id
+  const dateValue = req.body.birthday
+  const formattedDate = new Date(dateValue).toISOString().split('T')[0];
 
   const queryText = `
     UPDATE "user"
-    SET name = $1, pronouns = $2, location = $3, photo_URL = $4
-    WHERE id = $5;
+    SET name = $1, pronouns = $2, location = $3, photo_URL = $4, birthday = $5
+    WHERE id = $6;
   `
-  pool.query(queryText, [name, pronouns, location, photo, userID])
+  pool.query(queryText, [name, pronouns, location, photo, formattedDate, userID])
     .then(()=> {
       res.sendStatus(200);
     })

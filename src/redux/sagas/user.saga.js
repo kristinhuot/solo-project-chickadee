@@ -23,9 +23,10 @@ function* fetchUser() {
     console.log('User get request failed', error);
   }
 }
-
+// Function to send updated user inputs for the Nest to the server, 
+// then update the Users reducer
 function* setNestInputs(action){
-  console.log('action.payload is', action.payload)
+  console.log('action.payload is', action.payload);
   try {
     yield axios.put('/api/user', action.payload)
     yield call (fetchUser)
