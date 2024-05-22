@@ -27,11 +27,9 @@ function* fetchUser() {
 function* setNestInputs(action){
   console.log('action.payload is', action.payload);
   try {
-    const inputtedNestData = action.payload;
-    yield put({
-      type: 'ADD_NEST_INPUTS',
-      payload: inputtedNestData.data
-    }); 
+   const response = yield axios.put('/api/user', action.payload)
+
+    fetchUser();  
 
   } catch(error) {
     console.log('Setting Nest Inputs failed', error);

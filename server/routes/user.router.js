@@ -9,8 +9,29 @@ const userStrategy = require('../strategies/user.strategy');
 const router = express.Router();
 
 
-// router.put()
+router.put('/', (req, res) => {
+  // console.log('req.user.id is', req.user.id);
+  // console.log('req.body is', req.body);
+  const name = req.body.name; 
+  const pronouns = req.body.pronouns;
+  const location = req.body.location; 
+  const photo = req.body.photo
+  const userID = req.user.id
 
+  const queryText = `
+    UPDATE "user"
+    SET name = $1, pronouns = $2, location = $3, photo_URL = $4
+    WHERE id = $5;
+  `
+  pool.query(queryText, [name, pronouns, location, photo, userID])
+    .then(()=> {
+      res.sendStatus(200);
+    })
+      .catch((err) => {
+        console.log('Error updating user nest details', err);
+        res.sendStatus(500); 
+      })
+})
 
 
 

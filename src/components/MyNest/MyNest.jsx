@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch } from "react-redux";
 import dayjs from "dayjs";
+import { useSelector } from "react-redux";
 
  function MyNest(){
 
@@ -16,7 +17,11 @@ const [photo, setPhoto] = useState('')
 const history = useHistory()
 const dispatch = useDispatch()
 
+// const user = useSelector(store=>store.userReducer)
+
 const submitMyNestInputs = () => {
+
+// console.log('user is', user);
 
     dispatch({
         type: 'SUBMIT_NEST_INPUTS',

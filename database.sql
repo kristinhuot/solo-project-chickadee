@@ -3,6 +3,15 @@
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
 
+DROP TABLE IF EXISTS "session" CASCADE;
+DROP TABLE IF EXISTS "shared_flights" CASCADE;
+DROP TABLE IF EXISTS "care_methods" CASCADE;
+DROP TABLE IF EXISTS "flights" CASCADE;
+DROP TABLE IF EXISTS "user" CASCADE;
+
+---------------------------------------------------------------------------
+
+
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
@@ -11,6 +20,7 @@ CREATE TABLE "user" (
     "pronouns" VARCHAR,
     "birthday" DATE,
     "location" VARCHAR, 
+    "photo_URL" VARCHAR, 
     "share_code" VARCHAR  
 );
 CREATE TABLE "flights" (
@@ -18,32 +28,19 @@ CREATE TABLE "flights" (
     "flight_title" VARCHAR, 
     "flight_details" VARCHAR,
     "flight_date" DATE,
-    "user_id" int REFERENCES "user"
+    "user_id" int REFERENCES "user" ON DELETE CASCADE 
    
 );
 CREATE TABLE "shared_flights" (
 	"id" SERIAL PRIMARY KEY, 
-	"flight_id" int REFERENCES "flights",
+	"flight_id" int REFERENCES "flights" ON DELETE CASCADE, 
 	"shared_with_user_id" INTEGER, 
-	"user_id" int REFERENCES "user"
+	"user_id" int REFERENCES "user" ON DELETE CASCADE 
 );
 
 CREATE TABLE "care_methods"(
 	"id" SERIAL PRIMARY KEY, 
-	"user_id" int REFERENCES "user",
+	"user_id" int REFERENCES "user" ON DELETE CASCADE, 
 	"care_method_text" VARCHAR (250)
 );
 
-UPDATE "user" 
-SET 
-	name ='Kristin',
-	pronouns = 'she/her', 
-	birthday = '11/16/1991',
-	location = 'Minneapolis'
-WHERE id = 1; 
-
-
-INSERT INTO "flights"
-(flight_title, flight_details, flight_date, user_id)
-VALUES
-('test', 'testing', '05/20/2024', 1);
