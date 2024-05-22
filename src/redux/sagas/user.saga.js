@@ -25,6 +25,7 @@ function* fetchUser() {
 }
 
 function* setNestInputs(action){
+  console.log('action.payload is', action.payload);
   try {
     const inputtedNestData = action.payload;
     yield put({

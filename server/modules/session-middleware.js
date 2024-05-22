@@ -35,8 +35,8 @@ if (process.env.NODE_ENV === 'test') {
 module.exports = expressSession({
     store: new PgSession({
         pool,
-        pruneSessionInterval,
         createTableIfMissing: true,
+        pruneSessionInterval,
     }),
     secret: serverSessionSecret() || 'secret', // please set this in your .env file
     name: 'user', // this is the name of the req.variable. 'user' is convention, but not required
