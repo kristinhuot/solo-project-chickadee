@@ -19,8 +19,8 @@ const dispatch = useDispatch()
 const submitMyNestInputs = () => {
 
     dispatch({
-        type: 'SUBMIT_MYNEST_INPUTS',
-        payload: name, pronouns, birthday, location, photo
+        type: 'SUBMIT_NEST_INPUTS',
+        payload: {name, pronouns, birthday, location, photo}
     })
     history.push('my_care_preferences')
 }

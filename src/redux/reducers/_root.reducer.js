@@ -10,7 +10,8 @@ import user from './user.reducer';
 // This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
-  user, // will have an id and username if someone is logged in
+  user, // contains id, username and sharecode if someone is logged in from UserReducer function.
+  // also contains the myNestReducer that includes MyNest details about the user 
 });
 
 export default rootReducer;

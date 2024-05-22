@@ -24,8 +24,27 @@ function* fetchUser() {
   }
 }
 
+function* setNestInputs(action){
+  try {
+    const inputtedNestData = action.payload;
+    yield put({
+      type: 'ADD_NEST_INPUTS',
+      payload: inputtedNestData.data
+    }); 
+
+  } catch(error) {
+    console.log('Setting Nest Inputs failed', error);
+  }
+
+
+}
+
+
+
+
 function* userSaga() {
-  yield takeLatest('FETCH_USER', fetchUser);
+  yield takeLatest('FETCH_USER', fetchUser),
+  yield takeLatest('SUBMIT_NEST_INPUTS', setNestInputs);
 }
 
 export default userSaga;
