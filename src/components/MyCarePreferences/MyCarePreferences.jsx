@@ -8,7 +8,7 @@ function MyCarePreferences(){
 const [isAdded, setIsAdded] = useState(false)
 const dispatch = useDispatch()
 
-function handleClick(){
+function handleClick(method){
 
 try{
     if(isAdded) {
