@@ -17,7 +17,7 @@ return(
     <main>
         <h2>Welcome, {user.username}!</h2>
         <h1>My Flock's Flights</h1>
-        <section>
+        <section>  {/* Conditionally renders the flights as long as the flights reducer is not empty. Otherwise, directs users to add their first flight */}
             {flights && flights.length > 0 ? (
                 flights.map((flight) => {
                     return (
@@ -28,8 +28,8 @@ return(
                         </div>
                 );
             })
-        ) : (
-            <p>No flights found! Please go to Add a Flight to add your first flight</p>
+        ) : ( 
+            <p>No flights found! Please go to Add a Flight to add your first flight</p> 
         )}
         </section>
     </main>

@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch } from "react-redux";
 import dayjs from "dayjs";
 
-
+// collects user inputs for their profile and saves them to the database 
 function MyNest(){
 
     const [name, setName] = useState('')

@@ -5,14 +5,14 @@ import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { useDispatch } from "react-redux";
 
-
+// Adds a new flight to the database and renders on the homepage 
 function AddFlights(){
 
 const [flightTitle, setFlightTitle] = useState('');
 const [flightDetails, setFlightDetails] = useState('');
 const [flightDate, setFlightDate] = useState(dayjs())
 const dispatch = useDispatch()
-const [showModal, setShowModal] = useState(false); 
+const [showModal, setShowModal] = useState(false); // sets base state of modal to false so it does not yet appear 
 
 const submitNewFlight = () => {
 
@@ -26,7 +26,7 @@ const submitNewFlight = () => {
 
 const handleModalClose = () => {
     setShowModal(false); // Close the modal
-    // Reset form fields if needed
+    // Reset form fields 
     setFlightTitle('');
     setFlightDetails('');
     setFlightDate(dayjs());
