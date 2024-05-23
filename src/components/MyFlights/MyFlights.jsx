@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-function MyFlights(){}
+function MyFlights(){
 
-const myFlights = useSelector(store=> store.MyFlights)
+const flights = useSelector(store=> store.flightsReducer)
 const dispatch = useDispatch(); 
 
 useEffect(() => {
@@ -15,7 +15,15 @@ return(
     <main>
         <h1>My Flights</h1>
         <section>
-
+            {flights.map(flight => {
+                return(
+                    <div key={flight.id}>
+                        <h2>{flight.flight_title}</h2>
+                        <p>{flight.flight_date}</p>
+                        <p>{flight.flight_details}</p>
+                    </div>
+                )
+            })}
         </section>
 
 
@@ -26,6 +34,6 @@ return(
 
 )
 
-
+}
 
 export default MyFlights; 

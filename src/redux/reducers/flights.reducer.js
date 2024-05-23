@@ -1,9 +1,7 @@
-const flightsReducer = (state = {}, action) => {
+const flightsReducer = (state = [], action) => {
     switch (action.type) {
-      case 'SET_USER':
+      case 'GET_FLIGHTS':
         return action.payload;
-      case 'UNSET_USER':
-        return {};
       default:
         return state;
     }
