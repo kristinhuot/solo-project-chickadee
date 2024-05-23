@@ -32,8 +32,8 @@ const submitMyNestInputs = () => {
 
 return (
 <>
-    <Container sx={{bgcolor:'plum', height:'100'}}>
-        <Typography variant="h1" textAlign="center" sx={{":hover": {bgcolor: "#6D7D98"}}}>My Nest</Typography>
+    <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
+        <Typography variant="h1" textAlign="center">My Nest</Typography>
     </Container>
 
     <Container>

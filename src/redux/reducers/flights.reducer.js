@@ -1,3 +1,5 @@
+
+
 const flightsReducer = (state = [], action) => {
     switch (action.type) {
       case 'GET_FLIGHTS':

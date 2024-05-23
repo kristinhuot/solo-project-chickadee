@@ -1,5 +1,4 @@
 import React from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -32,8 +31,6 @@ return(
         ) : (
             <p>No flights found! Please go to Add a Flight to add your first flight</p>
         )}
-
-          {/* <LogOutButton className="btn" />     */}
         </section>
     </main>
 )
