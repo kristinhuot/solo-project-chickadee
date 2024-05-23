@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function* fetchFlights() {
     try{
-        response = yield axios.get('/api/flights')
+       const response = yield axios.get('/api/flights')
 
         yield put({
             type: 'GET_FLIGHTS',
