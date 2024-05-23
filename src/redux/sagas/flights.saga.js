@@ -15,8 +15,24 @@ function* fetchFlights() {
     }
 }
 
+
+function* addFlight(action){
+    try{
+        const response = yield axios.post('/api/flights', action.payload)
+ 
+         yield put({
+             type: 'ADD_FLIGHT',
+             payload: response.data
+         })
+     } catch(error) {
+         console.log('Add Flight failed', error);
+     }
+}
+
+
 function* flightsSaga() {
   yield takeLatest('FETCH_FLIGHTS', fetchFlights);
+  yield takeLatest('SUBMIT_NEW_FLIGHT', addFlight)
 }
 
 export default flightsSaga;

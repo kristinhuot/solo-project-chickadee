@@ -1,27 +1,23 @@
-import { Container, Typography, Input, TextField, Button, } from "@mui/material"; 
+import { Container, Typography, TextField, Button, } from "@mui/material"; 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch } from "react-redux";
 import dayjs from "dayjs";
-import { useSelector } from "react-redux";
 
- function MyNest(){
 
-const [name, setName] = useState('')
-const [pronouns, setPronouns] = useState('')
-const [birthday, setBirthday] = useState(dayjs())
-const [location, setLocation] = useState('')
-const [photo, setPhoto] = useState('')
-const history = useHistory()
-const dispatch = useDispatch()
+function MyNest(){
 
-// const user = useSelector(store=>store.userReducer)
+    const [name, setName] = useState('')
+    const [pronouns, setPronouns] = useState('')
+    const [birthday, setBirthday] = useState(dayjs())
+    const [location, setLocation] = useState('')
+    const [photo, setPhoto] = useState('')
+    const history = useHistory()
+    const dispatch = useDispatch()
 
-const submitMyNestInputs = () => {
-
-// console.log('user is', user);
+    const submitMyNestInputs = () => {
 
     dispatch({
         type: 'SUBMIT_NEST_INPUTS',
@@ -33,7 +29,7 @@ const submitMyNestInputs = () => {
 return (
 <>
     <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
-        <Typography variant="h1" textAlign="center">My Nest</Typography>
+        <Typography variant="h2" textAlign="center">My Nest</Typography>
     </Container>
 
     <Container>

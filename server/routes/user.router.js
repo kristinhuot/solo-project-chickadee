@@ -11,12 +11,12 @@ const router = express.Router();
 // Updates user data after registering and completing the My Nest inputs
 router.put('/', (req, res) => {
   const name = req.body.name; 
-  const pronouns = req.body.pronouns;
-  const location = req.body.location; 
+  const pronouns = req.body.pronouns
+  const location = req.body.location
   const photo = req.body.photo
   const userID = req.user.id
   const dateValue = req.body.birthday
-  const formattedDate = new Date(dateValue).toISOString().split('T')[0]; 
+  const formattedDate = new Date(dateValue).toISOString().split('T')[0]
   // converts birthday data into an object to parse correctly. Converts object into
   // an ISO string, splits the string on the 't' to separate the date and time. Take
   // the first part of the split array (date format portion)

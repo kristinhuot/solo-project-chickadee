@@ -21,7 +21,31 @@ router.get('/', (req, res) => {
 
 // ADD a new flight 
 router.post('/', (req, res) => {
-  // POST route code here
+
+const flightTitle = req.body.flightTitle
+const flightDetails = req.body.flightDetails
+const dateValue = req.body.flightDate
+const userID = req.user.id
+const formattedDate = new Date(dateValue).toISOString().split('T')[0]
+  // converts flight date data into an object to parse correctly. Converts object into
+  // an ISO string, splits the string on the 't' to separate the date and time. Take
+  // the first part of the split array (date format portion)
+
+    const sqlQuery = `
+        INSERT INTO "flights"
+        (flight_title, flight_details, flight_date, user_id)
+        VALUES
+        ($1, $2, $3, $4)
+        RETURNING "id";
+        `
+  pool.query(sqlQuery, [flightTitle, flightDetails, formattedDate, userID])
+    .then((result) => {
+        res.sendStatus(201)
+    })
+    .catch((err) => {
+        console.log('Error in POST route for /flights', err);
+        res.sendStatus(500)
+    })
 });
 
 module.exports = router;
