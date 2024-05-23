@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 function MyCarePreferences(){
 
 const [isAdded, setIsAdded] = useState(false)
+const [careMethodColor, setCareMethodColor] = useState(false)
 const dispatch = useDispatch()
 
 function handleClick(method){
@@ -36,12 +37,24 @@ try{
         {method_id: 4, value: 'do nice things for me'},
         {method_id: 5, value: 'hugs, please!'},
         {method_id: 6, value: 'surprises!'},
+        {method_id: 7, value: '+ add new!'},
     ]
 return (
 <>
     <Box display="flex" flexWrap="wrap">
         {careMethods.map((method)=> (
-            <Box onClick={() => handleClick(method)} gap={4} p={2} sx={{ borderRadius: '50%', border: '2px solid grey' }} key={method.method_id} m={3}>
+            <Box 
+                onClick={() => handleClick(method)} 
+                gap={4} 
+                p={2} 
+                sx={{ 
+                    borderRadius: '50%', 
+                    border: '2px solid grey',
+                    backgroundColor: isAdded ? '#717D92' : 'white',
+                }}
+                key={method.method_id}
+                m={3}
+                >
                 {method.value}
             </Box>
         ))}
