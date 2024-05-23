@@ -32,7 +32,7 @@ function* addCareMethod(action){
 
 function* careMethodsSaga() {
   yield takeLatest('REMOVE_CARE_METHOD', deleteCareMethod);
-  yield takeLatest('ADD_CARE_METHODT', addCareMethod)
+  yield takeLatest('ADD_CARE_METHOD', addCareMethod)
 }
 
 export default careMethodsSaga;

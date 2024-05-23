@@ -8,28 +8,24 @@ const router = express.Router();
 
  router.post('/', (req, res) => {
 
-    console.log('this is the care method', req.body.value);
-    console.log('this is the user id', req.user.id);
-
-    // const careMethod = req.body.value
-    // const userID = req.user.id
-
+    const careMethod = req.body.value
+    const userID = req.user.id
     
-    //     const sqlQuery = `
-    //         INSERT INTO "flights"
-    //         (flight_title, flight_details, flight_date, user_id)
-    //         VALUES
-    //         ($1, $2, $3, $4)
-    //         RETURNING "id";
-    //         `
-    //   pool.query(sqlQuery, [flightTitle, flightDetails, formattedDate, userID])
-    //     .then((result) => {
-    //         res.sendStatus(201)
-    //     })
-    //     .catch((err) => {
-    //         console.log('Error in POST route for /flights', err);
-    //         res.sendStatus(500)
-    //     })
+        const sqlQuery = `
+            INSERT INTO "care_methods"
+            (care_method_text, user_id)
+            VALUES
+            ($1, $2)
+            RETURNING "id";
+            `
+      pool.query(sqlQuery, [careMethod, userID])
+        .then((result) => {
+            res.sendStatus(201)
+        })
+        .catch((err) => {
+            console.log('Error in POST route for /flights', err);
+            res.sendStatus(500)
+        })
     });
 
 
