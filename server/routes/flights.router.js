@@ -19,6 +19,29 @@ router.get('/', (req, res) => {
 });
 
 
+// GET flights for a single logged in user
+
+router.get(`/:user_id`, (req, res) => {
+
+const user_id = req.params.user_id;
+
+    const query = `
+        SELECT * FROM "flights"
+        WHERE user_id = $1
+            ORDER BY "flight_date" DESC; 
+    `
+    pool.query(query, [user_id])
+        .then(result => {
+            res.send(result.rows)
+        })
+        .catch(err => {
+            console.log('Error in GET /flights', err);
+            res.sendStatus(500)
+        })
+});
+
+
+
 // ADD a new flight 
 router.post('/', (req, res) => {
 

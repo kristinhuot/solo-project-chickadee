@@ -5,19 +5,20 @@ import { useSelector } from "react-redux";
 
 function MyFlights(){
 
-const flights = useSelector(store => store.flights)
+const user_id = useSelector(store=> store.user)
+const myflights = useSelector(store => store.myflights)
 const dispatch = useDispatch(); 
 
 useEffect(() => {
-    dispatch({ type: 'FETCH_FLIGHTS' })
+    dispatch({ type: 'FETCH_MY_FLIGHTS', payload: user_id })
 }, [])
 
 return(
     <main>
         <h1>My Flights</h1>
         <section>
-            {flights && flights.length > 0 ? (
-                flights.map((flight) => {
+            {myflights && myflights.length > 0 ? (
+                myflights.map((flight) => {
                     return (
                         <Box key={flight.id}
                         gap={4} 

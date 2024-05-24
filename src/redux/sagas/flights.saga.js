@@ -15,6 +15,22 @@ function* fetchFlights() {
     }
 }
 
+function* fetchMyFlights(action){
+
+const user_id= action.payload.id;
+
+    try{
+        const response = yield axios.get(`/api/flights/${user_id}`)
+ 
+         yield put({
+             type: 'GET_MY_FLIGHTS',
+             payload: response.data
+         })
+     } catch(error) {
+         console.log('fetch my Flights failed', error);
+     }
+}
+
 
 function* addFlight(action){
     try{
@@ -33,6 +49,7 @@ function* addFlight(action){
 function* flightsSaga() {
   yield takeLatest('FETCH_FLIGHTS', fetchFlights);
   yield takeLatest('SUBMIT_NEW_FLIGHT', addFlight)
+  yield takeLatest('FETCH_MY_FLIGHTS', fetchMyFlights)
 }
 
 export default flightsSaga;

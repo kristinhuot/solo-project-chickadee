@@ -1,5 +1,4 @@
 
-
 const flightsReducer = (state = [], action) => {
     switch (action.type) {
       case 'GET_FLIGHTS':
@@ -10,6 +9,10 @@ const flightsReducer = (state = [], action) => {
         return state;
     }
   };
-  
 
-  export default flightsReducer;
+  
+  export default flightsReducer; 
+
+
+
+
