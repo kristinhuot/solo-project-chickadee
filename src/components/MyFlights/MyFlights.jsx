@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 
 function MyFlights(){
 
@@ -31,6 +31,8 @@ return(
                             <h2> Flight Name: {flight.flight_title}</h2>
                             <p> Flight Date: {flight.flight_date}</p>
                             <p> Details: {flight.flight_details}</p>
+                            <Button variant="outlined">Delete</Button>
+                            <Button variant="outlined">Edit</Button>
                         </Box>
                 );
             })
