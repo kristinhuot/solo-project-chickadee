@@ -2,10 +2,11 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Box } from '@mui/material';
 
 function FlockFlights(){
-
-const flights = useSelector(store => store.flightsReducer)
+    
+const flights = useSelector(store => store.flights)
 const dispatch = useDispatch(); 
 const user = useSelector((store) => store.user);
 
@@ -21,11 +22,18 @@ return(
             {flights && flights.length > 0 ? (
                 flights.map((flight) => {
                     return (
-                        <div key={flight.id}>
-                            <h2>{flight.flight_title}</h2>
-                            <p>{flight.flight_date}</p>
-                            <p>{flight.flight_details}</p>
-                        </div>
+                        <Box key={flight.id}
+                        gap={4} 
+                        p={2} 
+                        m={3}
+                        sx={{ 
+                            border: '2px solid grey', backgroundColor: '#AE9C8E'
+                        }}
+                        > 
+                            <h2> Flight Name: {flight.flight_title}</h2>
+                            <p> Flight Date: {flight.flight_date}</p>
+                            <p> Details: {flight.flight_details}</p>
+                        </Box>
                 );
             })
         ) : ( 
