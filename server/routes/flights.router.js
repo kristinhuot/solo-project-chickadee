@@ -20,9 +20,9 @@ router.get('/', (req, res) => {
 
 // GET flights for a single logged in user
 
-router.get(`/:user_id`, (req, res) => {
+router.get('/mine', (req, res) => {
 
-const user_id = req.params.user_id;
+const user_id = req.user.id
 
     const query = `
         SELECT * FROM "flights"
@@ -75,22 +75,20 @@ const formattedDate = new Date(dateValue).toISOString().split('T')[0]
 
 router.delete(`/:flight_id`, (req, res) => {
     
-    console.log('req.params is', req.params);
+    const flightID = req.user.id
 
-    // const flightID = req.params.id
-
-    // const sqlQuery = `
-    //     DELETE FROM flights
-    //         WHERE id = $1;
-    // `
-    // pool.query(sqlQuery, [flightID])
-    // .then((result) => {
-    //     res.sendStatus(201)
-    // })
-    // .catch((err) => {
-    //     console.log('Error in DELETE route for /flights', err);
-    //     res.sendStatus(500)
-    // })
+    const sqlQuery = `
+        DELETE FROM flights
+            WHERE id = $1;
+    ` 
+    pool.query(sqlQuery, [flightID])
+    .then((result) => {
+        res.sendStatus(201)
+    })
+    .catch((err) => {
+        console.log('Error in DELETE route for /flights', err);
+        res.sendStatus(500)
+    })
 })
 
 // EDIT a flight 

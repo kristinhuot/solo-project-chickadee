@@ -2,7 +2,7 @@
 
 const myFlightsReducer = (state = [], action) => {
     switch (action.type) {
-      case 'GET_MY_FLIGHTS':
+      case 'SET_MY_FLIGHTS':
         return action.payload;
       default:
         return state;

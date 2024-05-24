@@ -33,9 +33,6 @@ const router = express.Router();
 // DELETE care method 
 
 router.delete(`/:method_id`, (req, res) => {
-    
-// console.log('user id is', req.user.id);
-// console.log('method_id is', req.params.method_id);
 
     const user_id = req.user.id 
     const method_id = req.params.method_id

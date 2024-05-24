@@ -10,7 +10,7 @@ const myflights = useSelector(store => store.myflights)
 const dispatch = useDispatch(); 
 
 function deleteFlight(flight){
-    dispatch({type: 'DELETE_FLIGHT', payload: flight.id})
+    dispatch({type: 'DELETE_FLIGHT', payload: flight})
 }
 
 function editFlight(){

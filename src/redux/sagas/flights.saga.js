@@ -17,13 +17,11 @@ function* fetchFlights() {
 
 function* fetchMyFlights(action){
 
-const user_id= action.payload.id;
-
     try{
-        const response = yield axios.get(`/api/flights/${user_id}`)
+        const response = yield axios.get(`/api/flights/mine`)
  
          yield put({
-             type: 'GET_MY_FLIGHTS',
+             type: 'SET_MY_FLIGHTS',
              payload: response.data
          })
      } catch(error) {
@@ -47,13 +45,15 @@ function* addFlight(action){
 
 
 function* deleteFlight(action){
-    const flight_id = action.payload
+
+    const flight_id = action.payload.id
+    const user_id = action.payload.user_id
+
     try{
-        const response = yield axios.delete(`/api/flights/${flight_id}`)
+        yield axios.delete(`/api/flights/${flight_id}`)
 
         yield put({
-            type: 'SET_FLIGHTS',
-            payload: response.data
+            type: 'FETCH_MY_FLIGHTS', payload: user_id
         })
     } catch(error) {
         console.log('Add Flight failed', error);
