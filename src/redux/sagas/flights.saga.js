@@ -1,4 +1,4 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, take, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 
@@ -7,7 +7,7 @@ function* fetchFlights() {
        const response = yield axios.get('/api/flights')
 
         yield put({
-            type: 'GET_FLIGHTS',
+            type: 'SET_FLIGHTS',
             payload: response.data
         })
     } catch(error) {
@@ -37,7 +37,7 @@ function* addFlight(action){
         const response = yield axios.post('/api/flights', action.payload)
  
          yield put({
-             type: 'ADD_FLIGHT',
+             type: 'FETCH_MY_FLIGHTS',
              payload: response.data
          })
      } catch(error) {
@@ -46,10 +46,26 @@ function* addFlight(action){
 }
 
 
+function* deleteFlight(action){
+    const flight_id = action.payload
+    try{
+        const response = yield axios.delete(`/api/flights/${flight_id}`)
+
+        yield put({
+            type: 'SET_FLIGHTS',
+            payload: response.data
+        })
+    } catch(error) {
+        console.log('Add Flight failed', error);
+    }
+  
+}
+
 function* flightsSaga() {
-  yield takeLatest('FETCH_FLIGHTS', fetchFlights);
+  yield takeLatest('FETCH_FLIGHTS', fetchFlights)
   yield takeLatest('SUBMIT_NEW_FLIGHT', addFlight)
   yield takeLatest('FETCH_MY_FLIGHTS', fetchMyFlights)
+  yield takeLatest('DELETE_FLIGHT', deleteFlight)
 }
 
 export default flightsSaga;

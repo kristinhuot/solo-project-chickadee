@@ -9,6 +9,15 @@ const user_id = useSelector(store=> store.user)
 const myflights = useSelector(store => store.myflights)
 const dispatch = useDispatch(); 
 
+function deleteFlight(flight){
+    dispatch({type: 'DELETE_FLIGHT', payload: flight.id})
+}
+
+function editFlight(){
+
+
+}
+
 useEffect(() => {
     dispatch({ type: 'FETCH_MY_FLIGHTS', payload: user_id })
 }, [])
@@ -31,8 +40,8 @@ return(
                             <h2> Flight Name: {flight.flight_title}</h2>
                             <p> Flight Date: {flight.flight_date}</p>
                             <p> Details: {flight.flight_details}</p>
-                            <Button variant="outlined">Delete</Button>
-                            <Button variant="outlined">Edit</Button>
+                            <Button onClick={() => deleteFlight(flight)} variant="outlined">Delete</Button>
+                            <Button onClick={() => editFlight(flight)} variant="outlined">Edit</Button>
                         </Box>
                 );
             })
