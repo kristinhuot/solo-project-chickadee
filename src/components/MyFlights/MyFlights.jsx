@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -23,8 +23,11 @@ useEffect(() => {
 }, [])
 
 return(
+<Container>    
     <main>
-        <h1>My Flights</h1>
+    <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
+        <Typography fontSize={40} variant="h2" textAlign="center">My Flights</Typography>
+    </Container>
         <section>
             {myflights && myflights.length > 0 ? (
                 myflights.map((flight) => {
@@ -37,11 +40,12 @@ return(
                             border: '2px solid grey', backgroundColor: '#AE9C8E'
                         }}
                         > 
-                            <h2> Flight Name: {flight.flight_title}</h2>
-                            <p> Flight Date: {flight.flight_date}</p>
-                            <p> Details: {flight.flight_details}</p>
-                            <Button onClick={() => deleteFlight(flight)} variant="outlined">Delete</Button>
-                            <Button onClick={() => editFlight(flight)} variant="outlined">Edit</Button>
+                        <Typography m={2} fontSize={24} variant='h3'>Flight Name: {flight.flight_title}</Typography>
+                        <Typography m={2}>Flight Date: {flight.flight_date}</Typography>
+                        <Typography m={2}>Details: {flight.flight_details}</Typography>
+                        
+                        <Button onClick={() => deleteFlight(flight)} variant="outlined">Delete</Button>
+                        <Button onClick={() => editFlight(flight)} variant="outlined">Edit</Button>
                         </Box>
                 );
             })
@@ -50,6 +54,7 @@ return(
         )}
         </section>
     </main>
+</Container>
 )
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Box, Button } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 
 function FlockFlights(){
     
@@ -15,9 +15,12 @@ useEffect(() => {
 }, [])
 
 return(
+<Container>    
     <main>
-        <h2>Welcome, {user.username}!</h2>
-        <h1>My Flock's Flights</h1>
+    <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
+        {/* <Typography fontSize={40} variant="h2" textAlign="center">Welcome, {user.username}!</Typography> */}
+        <Typography fontSize={40} variant="h2" textAlign="center">My Flock's Flights</Typography>
+    </Container>
         <section>  {/* Conditionally renders the flights as long as the flights reducer is not empty. Otherwise, directs users to add their first flight */}
             {flights && flights.length > 0 ? (
                 flights.map((flight) => {
@@ -30,9 +33,9 @@ return(
                             border: '2px solid grey', backgroundColor: '#AE9C8E'
                         }}
                         > 
-                            <h2> Flight Name: {flight.flight_title}</h2>
-                            <p> Flight Date: {flight.flight_date}</p>
-                            <p> Details: {flight.flight_details}</p>
+                            <Typography m={2} fontSize={24} variant='h3'>Flight Name: {flight.flight_title}</Typography>
+                            <Typography m={2}>Flight Date: {flight.flight_date}</Typography>
+                            <Typography m={2}>Details: {flight.flight_details}</Typography>
                         </Box>
                 );
             })
@@ -41,6 +44,7 @@ return(
         )}
         </section>
     </main>
+</Container>
 )
 }
 

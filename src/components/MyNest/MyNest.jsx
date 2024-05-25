@@ -27,9 +27,9 @@ function MyNest(){
 }
 
 return (
-<>
+<Container>
     <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
-        <Typography variant="h2" textAlign="center">My Nest</Typography>
+        <Typography fontSize={40} variant="h2" textAlign="center">My Nest</Typography>
     </Container>
 
     <Container>
@@ -37,37 +37,46 @@ return (
         <TextField 
         onChange={(e) => setName(e.target.value)}
         value={name} 
-        label="Name"/>
+        label="Name"
+        margin="dense"
+        />
     </form>
     <form>
         <TextField 
         onChange={(e) => setPronouns(e.target.value)} 
         value={pronouns} 
         label="Pronouns"
+        margin="dense"
         />
     </form>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker 
             onChange={(newValue) => setBirthday(newValue)}
             value={birthday} 
-            label="Birthday" />
+            label="Birthday"
+            margin="dense"
+            />
         </LocalizationProvider>
     <form>
         <TextField 
         onChange={(e) => setLocation(e.target.value)}
         value={location} 
-        label="Location"/>
+        label="Location"
+        margin="dense"
+        />
     </form>
     <form>
         <TextField 
         onChange={(e) => setPhoto(e.target.value)} 
         value={photo} 
-        label="Profile Photo URL"/>
+        label="Profile Photo URL"
+        margin="dense"
+        />
     </form>
     <Button onClick={submitMyNestInputs} variant="contained">Preferences</Button>
 
+    </Container>
 </Container>
-</>
 
 )}
 

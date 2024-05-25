@@ -1,4 +1,4 @@
-import { Box, Button, Container, TextField } from "@mui/material";
+import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -54,6 +54,12 @@ try{
 return (
 
 <Container>   
+    <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
+        <Typography fontSize={40} variant="h2" textAlign="center">My Care Methods</Typography>
+    </Container>
+
+    <Typography margin={2} fontSize={25} variant="h3" textAlign="center">I prefer to receive care in the following ways. Select all that apply</Typography>
+
     <Box display="flex" flexWrap="wrap" gap={2}>
         <Box   
             onClick={handleClick}
