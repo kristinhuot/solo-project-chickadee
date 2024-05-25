@@ -6,13 +6,28 @@ import { useDispatch, useSelector } from "react-redux";
 function MyCarePreferences(){
 
 const [newCareMethod, setNewCareMethod] = useState(''); 
+const dispatch = useDispatch()
 
-function handleInput(){
+
+const submitPreferences = () => {
+
+    // dispatch({
+    //     type: 'SUBMIT_NEW_CARE_METHOD',
+    //     payload: newCareMethod
+    // })
+
+    dispatch({
+        type: 'TOGGLE_CARE_METHOD',
+
+    })
 
 
 }
 
-const dispatch = useDispatch()
+
+function handleInput(e){
+    setNewCareMethod(e.target.value)
+}
 
 function handleClick(method){
 
@@ -40,7 +55,6 @@ return (
 
 <Container>   
     <Box display="flex" flexWrap="wrap" gap={2}>
-
         <Box   
             onClick={handleClick}
             height={25}
@@ -183,7 +197,8 @@ return (
     
     </Box> 
 
-    <Button variant="contained">Save Preferences</Button>
+    <Button variant="contained" onSubmit={submitPreferences}>Save Preferences</Button>
+
 </Container>
 
 )
