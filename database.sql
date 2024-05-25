@@ -2,7 +2,6 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
-
 DROP TABLE IF EXISTS "session" CASCADE;
 DROP TABLE IF EXISTS "shared_flights" CASCADE;
 DROP TABLE IF EXISTS "care_methods" CASCADE;
@@ -20,7 +19,7 @@ CREATE TABLE "user" (
     "pronouns" VARCHAR,
     "birthday" DATE,
     "location" VARCHAR, 
-    "photo_URL" VARCHAR, 
+    "photo_url" VARCHAR, 
     "share_code" VARCHAR  
 );
 CREATE TABLE "flights" (
@@ -38,9 +37,24 @@ CREATE TABLE "shared_flights" (
 	"user_id" int REFERENCES "user" ON DELETE CASCADE 
 );
 
-CREATE TABLE "care_methods"(
+CREATE TABLE "care_methods" (
 	"id" SERIAL PRIMARY KEY, 
 	"user_id" int REFERENCES "user" ON DELETE CASCADE, 
-	"care_method_text" VARCHAR (250)
+	"time_together" BOOLEAN DEFAULT FALSE,
+	"tell_me_nice_things" BOOLEAN DEFAULT FALSE,
+	"send_me_nice_things" BOOLEAN DEFAULT FALSE,
+	"do_nice_things_for_me" BOOLEAN DEFAULT FALSE,
+	"hugs_please" BOOLEAN DEFAULT FALSE,
+	"surprises" BOOLEAN DEFAULT FALSE
 );
 
+CREATE TABLE "custom_care_methods" (
+	"id" SERIAL PRIMARY KEY, 
+	"custom_text" VARCHAR (300),
+	"user_id" int REFERENCES "user" ON DELETE CASCADE 
+);
+
+
+
+	
+	
