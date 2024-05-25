@@ -75,7 +75,7 @@ const formattedDate = new Date(dateValue).toISOString().split('T')[0]
 
 router.delete(`/:flight_id`, (req, res) => {
     
-    const flightID = req.user.id
+    const flightID = req.params.flight_id;
 
     const sqlQuery = `
         DELETE FROM flights

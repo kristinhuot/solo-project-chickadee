@@ -17,6 +17,8 @@ function* fetchFlights() {
 
 function* fetchMyFlights(action){
 
+console.log('action.payload is', action.payload);
+
     try{
         const response = yield axios.get(`/api/flights/mine`)
  
