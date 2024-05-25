@@ -34,7 +34,7 @@ const user_id = req.user.id
             res.send(result.rows)
         })
         .catch(err => {
-            console.log('Error in GET /flights', err);
+            console.log('Error in GET /mine', err);
             res.sendStatus(500)
         })
 });
