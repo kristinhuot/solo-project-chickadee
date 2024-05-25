@@ -17,7 +17,7 @@ useEffect(() => {
 return(
 <Container>    
     <main>
-    <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
+    <Container sx={{height:'50'}}>
         {/* <Typography fontSize={40} variant="h2" textAlign="center">Welcome, {user.username}!</Typography> */}
         <Typography fontSize={40} variant="h2" textAlign="center">My Flock's Flights</Typography>
     </Container>
@@ -30,7 +30,7 @@ return(
                         p={2} 
                         m={3}
                         sx={{ 
-                            border: '2px solid grey', backgroundColor: '#AE9C8E'
+                            border: '2px solid grey', backgroundColor: '#6D7D98'
                         }}
                         > 
                             <Typography m={2} fontSize={24} variant='h3'>Flight Name: {flight.flight_title}</Typography>

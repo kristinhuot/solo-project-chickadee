@@ -55,7 +55,7 @@ return (
 
 <Container>   
     <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
-        <Typography fontSize={40} variant="h2" textAlign="center">My Care Methods</Typography>
+        <Typography fontSize={40} variant="h2" textAlign="center">My Care Preferences</Typography>
     </Container>
 
     <Typography margin={2} fontSize={25} variant="h3" textAlign="center">I prefer to receive care in the following ways. Select all that apply</Typography>
