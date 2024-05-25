@@ -1,9 +1,16 @@
-import { Box, Button, Container } from "@mui/material";
+import { Box, Button, Container, TextField } from "@mui/material";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // allows users to indicate their preferred care methods and stores them to the database 
 function MyCarePreferences(){
+
+const [newCareMethod, setNewCareMethod] = useState(''); 
+
+function handleInput(){
+
+
+}
 
 const dispatch = useDispatch()
 
@@ -149,7 +156,6 @@ return (
             >surprises!
         </Box>
         <Box  
-            onClick={handleClick}
             height={25}
             width={100}
             my={4}
@@ -165,7 +171,12 @@ return (
                 textAlign: 'center',
                 backgroundColor: '#E6E6E6'
             }}
-            >+ add other 
+            ><TextField 
+                label='+ add other'
+                size="small"
+                onChange={handleInput}
+                value={newCareMethod}
+            />
         </Box>
         
        
