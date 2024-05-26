@@ -1,6 +1,7 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function MyFlights(){
@@ -8,13 +9,15 @@ function MyFlights(){
 const user_id = useSelector(store=> store.user)
 const myflights = useSelector(store => store.myflights)
 const dispatch = useDispatch(); 
+const history = useHistory(); 
 
 function deleteFlight(flight){
     dispatch({type: 'DELETE_FLIGHT', payload: flight})
 }
 
-function editFlight(){
+function editFlight(flight){
 
+history.push('edit_flight')
 
 }
 

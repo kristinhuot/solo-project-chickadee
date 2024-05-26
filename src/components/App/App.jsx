@@ -1,4 +1,8 @@
 import React, { useEffect } from 'react';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import Nav from '../Nav/Nav';
+import Footer from '../Footer/Footer';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   HashRouter as Router,
   Redirect,
@@ -6,12 +10,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux';
-
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+// Imports from components and CSS below 
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
@@ -23,7 +22,7 @@ import MyCarePreferences from '../MyCarePreferences/MyCarePreferences'
 import MyFlights from '../MyFlights/MyFlights';
 import AddFlights from '../AddFlights/AddFlights';
 import AddToMyFlock from '../AddToMyFlock/AddToMyFlock';
-
+import EditFlight from '../EditFlight/EditFlight';
 import './App.css';
 
 function App() {
@@ -148,7 +147,14 @@ function App() {
             <AddToMyFlock/>
           </ProtectedRoute>
 
- 
+          <ProtectedRoute
+            // logged in shows Edit Flight page else shows LoginPage
+            exact
+            path="/edit_flight"
+          >
+            <EditFlight/>
+          </ProtectedRoute>
+
           {/* Visiting localhost:5173/about will show the about page. */}
           <Route
             // shows AboutPage at all times (logged in or not)
