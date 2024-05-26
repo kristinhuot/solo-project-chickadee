@@ -63,11 +63,16 @@ function* deleteFlight(action){
   
 }
 
+function* editFlight(){
+    
+}
+
 function* flightsSaga() {
   yield takeLatest('FETCH_FLIGHTS', fetchFlights)
   yield takeLatest('SUBMIT_NEW_FLIGHT', addFlight)
   yield takeLatest('FETCH_MY_FLIGHTS', fetchMyFlights)
   yield takeLatest('DELETE_FLIGHT', deleteFlight)
+  yield takeLatest('FETCH_FLIGHT_TO_EDIT', editFlight)
 }
 
 export default flightsSaga;

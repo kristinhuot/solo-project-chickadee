@@ -150,7 +150,7 @@ function App() {
           <ProtectedRoute
             // logged in shows Edit Flight page else shows LoginPage
             exact
-            path="/edit_flight"
+            path="/edit_flight/:flight_id"
           >
             <EditFlight/>
           </ProtectedRoute>

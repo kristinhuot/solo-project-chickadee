@@ -4,6 +4,7 @@ import user from './user.reducer';
 import flights from './flights.reducer'
 import caremethods from './caremethods.reducer'
 import myflights from './myflights.reducer'
+import editflight from './editflight.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,8 +16,9 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // contains id, username and sharecode if someone is logged in from UserReducer function. Also contains the myNestReducer that includes MyNest details about the user 
   flights, // contains all flight details 
-  caremethods,
-  myflights,
+  caremethods, // contains preferred care methods for a single user
+  myflights, // contains data for a single user's flights
+  editflight, // contains data for flight that is being edited
 });
 
 export default rootReducer;

@@ -8,16 +8,16 @@ function MyFlights(){
 
 const user_id = useSelector(store=> store.user)
 const myflights = useSelector(store => store.myflights)
-const dispatch = useDispatch(); 
-const history = useHistory(); 
+const dispatch = useDispatch()
+const history = useHistory()
 
 function deleteFlight(flight){
     dispatch({type: 'DELETE_FLIGHT', payload: flight})
 }
 
-function editFlight(flight){
+function editFlight(flight) {
 
-history.push('edit_flight')
+    history.push(`/edit_flight/${flight.id}`)
 
 }
 
