@@ -5,7 +5,7 @@ import logger from "redux-logger";
 
 function AddToMyFlock(){
 
-const dispatch = useDispatch
+const dispatch = useDispatch()
 const [flockmateInput, setFlockmateInput] = useState('') // creates state for the input of the flockmate's code 
 const userData = useSelector(store => store.user) // grabs userdata from the reducer 
 const [showShareCode, setShowShareCode] = useState(false)
@@ -18,39 +18,39 @@ const handleGenerateCode = (event) => {
 }
 
 
-
 const handleAddFlockmate = (event) => {
-
+    
+  
     console.log('this is the flockmateInput', flockmateInput);
 
     dispatch({
         type: 'SUBMIT_FLOCKMATE',
-        payload: flockmateCode
+        payload: {flockmateInput}
     })
 }
 
 return(
-<Container>
-    <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
-        <Typography fontSize={40} variant="h2" textAlign="center">Expand Your Flock</Typography>
+    <Container>
+        <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
+            <Typography fontSize={40} variant="h2" textAlign="center">Expand Your Flock</Typography>
+        </Container>
+        <Box m={4} p={4}>
+            <Box m={2} p={2} xs={12}>
+                <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#C9C9CB', margin:'2', padding:'2' }}>
+                    <Typography fontSize={24} variant="h3" sx={{ mb: 2, mt: 2 }}> Add to your flock by generating and sharing your flock code</Typography>
+                    <Button onClick={handleGenerateCode} variant="contained" sx={{ mb: 2 }}>Generate My Share Code</Button>
+                    <TextField value={shareCode} fullWidth sx={{ mb: 2 }}></TextField>
+                </Paper>
+            </Box>
+            <Box m={2} p={2} xs={12}>
+                <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#C9C9CB' }}>
+                    <Typography fontSize={24} variant="h3" sx={{ mb: 2, mt: 2 }}> Add a new flockmate by entering their flock code below</Typography>
+                    <Button onClick={handleAddFlockmate} variant="contained" sx={{ mb: 2 }}>Add to My Flock</Button>
+                    <TextField onChange={(e) => setFlockmateInput(e.target.value)} value={flockmateInput} fullWidth sx={{ mb: 2 }}></TextField>
+                </Paper>
+            </Box>
+        </Box>
     </Container>
-    <Box m={4} p={4}>
-        <Box m={2} p={2} xs={12}>
-            <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#C9C9CB', margin:'2', padding:'2' }}>
-                <Typography fontSize={24} variant="h3" sx={{ mb: 2, mt: 2 }}> Add to your flock by generating and sharing your flock code</Typography>
-                <Button onClick={handleGenerateCode} variant="contained" sx={{ mb: 2 }}>Generate My Share Code</Button>
-                <TextField value={shareCode} fullWidth sx={{ mb: 2 }}></TextField>
-            </Paper>
-        </Box>
-        <Box m={2} p={2} xs={12}>
-            <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#C9C9CB' }}>
-                <Typography fontSize={24} variant="h3" sx={{ mb: 2, mt: 2 }}> Add a new flockmate by entering their flock code below</Typography>
-                <Button onClick={handleAddFlockmate} variant="contained" sx={{ mb: 2 }}>Add to My Flock</Button>
-                <TextField onChange={(e) => setFlockmateInput(e.target.value)} value={flockmateInput} fullWidth sx={{ mb: 2 }}></TextField>
-            </Paper>
-        </Box>
-    </Box>
-</Container>
 
 
 )

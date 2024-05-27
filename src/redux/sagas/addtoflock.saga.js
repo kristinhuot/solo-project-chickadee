@@ -3,10 +3,10 @@ import axios from 'axios';
 
 function* addToFlock(action){
     try{
-        const response = yield axios.post('/api/flights', action.payload)
+        const response = yield axios.post('/api/addtoflock', action.payload)
  
          yield put({
-             type: 'FETCH_MY_FLIGHTS',
+             type: 'FETCH_FLIGHTS',
              payload: response.data
          })
      } catch(error) {
