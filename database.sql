@@ -53,4 +53,17 @@ CREATE TABLE "custom_care_methods" (
 	"user_id" int REFERENCES "user" ON DELETE CASCADE 
 	);
 
-	
+SELECT 
+	flights.id AS "flight_id",
+	flights.user_id,
+	flights.flight_title,
+	flights.flight_date,
+	flights.flight_details,
+	shared_flights.id AS "shared_id",
+	shared_flights.shared_with_user_id AS "share_code",
+	shared_flights.user_id
+FROM "flights"
+		JOIN "shared_flights"
+	ON flights.user_id = shared_flights.user_id
+	WHERE shared_flights.shared_with_user_id IS NOT NULL 
+            ORDER BY "flight_date" DESC
