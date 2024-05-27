@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography, Paper } from '@mui/material';
 import dayjs from 'dayjs';
 
 function FlockFlights(){
@@ -20,7 +20,7 @@ return(
     <main>
     <Container sx={{height:'50'}}>
         {/* <Typography fontSize={40} variant="h2" textAlign="center">Welcome, {user.username}!</Typography> */}
-        <Typography fontSize={40} variant="h2" textAlign="center">My Flock's Flights</Typography>
+        <Paper><Typography fontSize={40} variant="h2" textAlign="center">My Flock's Flights</Typography></Paper>
     </Container>
         <section>  {/* Conditionally renders the flights as long as the flights reducer is not empty. Otherwise, directs users to add their first flight */}
             {flights && flights.length > 0 ? (

@@ -39,6 +39,7 @@ return (
         value={name} 
         label="Name"
         margin="dense"
+        sx={{mb:2, mt: 4}}
         />
     </form>
     <form>
@@ -47,6 +48,7 @@ return (
         value={pronouns} 
         label="Pronouns"
         margin="dense"
+        sx={{mb:2, mt: 2}}
         />
     </form>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -55,6 +57,7 @@ return (
             value={birthday} 
             label="Birthday"
             margin="dense"
+            sx={{mb:2, mt: 2}}
             />
         </LocalizationProvider>
     <form>
@@ -63,6 +66,7 @@ return (
         value={location} 
         label="Location"
         margin="dense"
+        sx={{mb:2, mt: 2}}
         />
     </form>
     <form>
@@ -71,6 +75,8 @@ return (
         value={photo} 
         label="Profile Photo URL"
         margin="dense"
+        sx={{mb:4, mt: 2}}
+        fullWidth
         />
     </form>
     <Button onClick={submitMyNestInputs} variant="contained">Preferences</Button>

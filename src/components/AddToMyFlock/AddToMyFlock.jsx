@@ -31,9 +31,8 @@ const handleAddFlockmate = (event) => {
 
 return(
     <Container>
-        <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
-            <Typography fontSize={40} variant="h2" textAlign="center">Expand Your Flock</Typography>
-        </Container>
+        <Paper sx={{bgcolor:'#B18C9E', height:'50'}}><Typography fontSize={40} variant="h2" textAlign="center">Expand Your Flock</Typography></Paper>
+
         <Box m={4} p={4}>
             <Box m={2} p={2} xs={12}>
                 <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#C9C9CB', margin:'2', padding:'2' }}>
