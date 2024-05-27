@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Box, Button, Container, Typography } from '@mui/material';
+import dayjs from 'dayjs';
 
 function FlockFlights(){
     
@@ -34,7 +35,7 @@ return(
                         }}
                         > 
                             <Typography m={2} fontSize={24} variant='h3'>Flight Name: {flight.flight_title}</Typography>
-                            <Typography m={2}>Flight Date: {flight.flight_date}</Typography>
+                            <Typography m={2}>Flight Date: {dayjs(flight.flight_date).format('MMMM DD, YYYY')}</Typography>
                             <Typography m={2}>Details: {flight.flight_details}</Typography>
                         </Box>
                 );
