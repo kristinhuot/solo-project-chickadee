@@ -1,9 +1,17 @@
 import { Button, Container, TextField, Typography, Paper, Box } from "@mui/material";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function AddToMyFlock(){
 
+const userData = useSelector(store => store.user)
+const [showShareCode, setShowShareCode] = useState(false)
+const [shareCode, setShareCode] = useState('')
+
 const handleGenerateCode = (event) => {
-    console.log('this works!');
+    setShareCode(userData.share_code) // update the share code state with the value from the reducer 
+    setShowShareCode(true) // show the sharecode in the text field 
+   
 }
 
 
@@ -17,7 +25,7 @@ return(
             <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#C9C9CB' }}>
                <Typography fontSize={24} variant="h3" sx={{ mb: 2, mt: 2 }}> Add to your flock by generating and sharing your flock code</Typography>
                 <Button onClick={handleGenerateCode} variant="contained" sx={{ mb: 2 }}>Generate My Share Code</Button>
-                <TextField fullWidth sx={{ mb: 2 }}></TextField>
+                <TextField value={shareCode} fullWidth sx={{ mb: 2 }}></TextField>
             </Paper>
         </Box>
         <Box m={2} p={2} xs={12}>
