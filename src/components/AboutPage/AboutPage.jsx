@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, Paper } from '@mui/material';
 
 // This is a simple component. It doesn't have local state, dispatch
 // any redux actions or display any part of redux state
@@ -7,9 +7,9 @@ import { Container, Typography } from '@mui/material';
 function AboutPage() {
   return (
     <Container>
-      <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
+      <Paper sx={{bgcolor:'#B18C9E', height:'50'}}>
           <Typography fontSize={40} variant="h2" textAlign="center">Our Origin Story</Typography>
-        </Container>
+        </Paper>
       <Container>
         <Typography gap={4} p={2} m={3}>Chickadee is an ‘un-social media’ web application - its goal is to foster intentionality and support users in the deepening of close-connections outside of the app, in real-life. In an ever global, fast-paced, and disconnected world, Chickadee is a place to share in the unique life events that matter most to you - so that you and your closest connections can celebrate one another, and what matters to each of you, in the most impactful way.</Typography>
       </Container>

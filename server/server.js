@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const flightsRouter = require('./routes/flights.router');
 const careMethodsRouter = require('./routes/caremethods.router');
+const addToFlockRouter = require('./routes/addtoflock.router')
 
 // Express Middleware
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/flights', flightsRouter)
 app.use('/api/caremethods', careMethodsRouter)
+app.use('/api/addtoflock', addToFlockRouter)
 
 // Listen Server & Port
 app.listen(PORT, () => {
