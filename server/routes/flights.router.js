@@ -4,6 +4,7 @@ const router = express.Router();
 
 // GET all flights 
 router.get('/', (req, res) => {
+    console.log('this is the get for all flights');
     const query = `
         SELECT * FROM "flights"
             ORDER BY "flight_date" DESC
@@ -18,26 +19,6 @@ router.get('/', (req, res) => {
         })
 });
 
-// GET flights for a single logged in user
-
-router.get('/mine', (req, res) => {
-
-const user_id = req.user.id
-
-    const query = `
-        SELECT * FROM "flights"
-        WHERE user_id = $1
-            ORDER BY "flight_date" DESC; 
-    `
-    pool.query(query, [user_id])
-        .then(result => {
-            res.send(result.rows)
-        })
-        .catch(err => {
-            console.log('Error in GET /mine', err);
-            res.sendStatus(500)
-        })
-});
 
 
 // ADD a new flight 
@@ -95,6 +76,52 @@ router.delete(`/:flight_id`, (req, res) => {
 
 
 
+
+// GET the data for a single flight in order to view for editing 
+
+router.get('/edit_flight/:id', (req, res) => {
+    console.log('this is the GET for a single flight for editing');
+    const idOfFlight = req.params.id
+
+    const sqlText = `
+        SELECT * FROM "flights"
+            WHERE id = $1; 
+    `
+  
+    pool.query(sqlText, [idOfFlight])
+        .then((dbRes) => {
+     
+        const singleFlight = dbRes.rows[0]
+        res.send(singleFlight); 
+        })
+        .catch((dbErr) => {
+            console.log('GET /edit_flight/:idOfFlight error', dbErr);
+            res.sendStatus(500)
+        })
+})
+
+
+
+// GET flights for a single logged in user
+
+router.get('/mine/', (req, res) => {
+    console.log('this is the get for single user');
+const user_id = req.user.id
+
+    const query = `
+        SELECT * FROM "flights"
+        WHERE user_id = $1
+            ORDER BY "flight_date" DESC; 
+    `
+    pool.query(query, [user_id])
+        .then(result => {
+            res.send(result.rows)
+        })
+        .catch(err => {
+            console.log('Error in GET /mine', err);
+            res.sendStatus(500)
+        })
+});
 
 
 module.exports = router;
