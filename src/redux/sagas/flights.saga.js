@@ -65,10 +65,7 @@ function* fetchFlighttoEdit(action){
     try{
         const idOfFlight = action.payload
         console.log('display action.payload', action.payload);
-        const response = yield axios.get({
-            method: 'GET',
-            url: `/api/flights/edit_flight/${idOfFlight}`
-        })
+        const response = yield axios.get(`/api/flights/edit_flight/${idOfFlight}`)
         // Once we get the flight that we want to edit, we send it to the editFlightsReducer
        
        console.log('response.data is. HTML', response.data);

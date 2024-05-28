@@ -46,12 +46,14 @@ return(
 
    <Container>
         <form onSubmit={updateFlight}>
-        <TextField 
-            value={FlightToEdit.flight_title}
-            onChange={handleFlightNameChange}>
-                {FlightToEdit.flight_title}
-        </TextField>
-        <Button variant="outlined">Submit Changes</Button>
+          {FlightToEdit.flight_title && 
+                <TextField 
+                  value={FlightToEdit.flight_title}
+                  onChange={handleFlightNameChange}>
+                      {FlightToEdit.flight_title}
+                </TextField>
+            }
+            <Button variant="outlined">Submit Changes</Button>
         </form>
    </Container>
 
@@ -63,10 +65,3 @@ return(
 }
 export default EditFlight; 
 
-
-// {FlightToEdit.flight_details &&
-//     <input
-//     value={FlightToEdit.flight_details}
-//     onChange={handleFlightDetailChange}
-//     />
-// }
