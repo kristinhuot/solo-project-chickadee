@@ -6,7 +6,7 @@ import { Box, Button, Container, Typography, Paper } from '@mui/material';
 import dayjs from 'dayjs';
 
 function FlockFlights(){
-    
+
 const flights = useSelector(store => store.flights)
 const dispatch = useDispatch(); 
 const user = useSelector((store) => store.user);
@@ -26,7 +26,7 @@ return(
             {flights && flights.length > 0 ? (
                 flights.map((flight) => {
                     return (
-                        <Box key={flight.id}
+                        <Box key={`${flight.id}-${flight.flight_title}`}
                         gap={4} 
                         p={2} 
                         m={3}

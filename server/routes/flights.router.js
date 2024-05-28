@@ -4,11 +4,33 @@ const router = express.Router();
 
 // GET all flights 
 router.get('/', (req, res) => {
+console.log('req.user.id is', req.user.id)
+
+const userID= req.user.id
+
     const query = `
-        SELECT * FROM "flights"
+    SELECT 
+	flights.id AS "flight_id",
+	flights.user_id,
+	flights.flight_title,
+	flights.flight_date,
+	flights.flight_details,
+	shared_flights.id AS "shared_id",
+	shared_flights.shared_with_user_id AS "share_code",
+	shared_flights.user_id,
+	"user"."id" AS "user_id",
+	"user"."name",
+	"user"."pronouns",
+	"user"."birthday"
+FROM "flights"
+		JOIN "shared_flights"
+	ON flights.user_id = shared_flights.user_id
+		JOIN "user" 	
+	ON shared_flights.user_id = "user"."id"
+	WHERE "shared_flights".user_id = $1
             ORDER BY "flight_date" DESC
     `
-    pool.query(query)
+    pool.query(query, [userID])
         .then(result => {
             res.send(result.rows)
         })
