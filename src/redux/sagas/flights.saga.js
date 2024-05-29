@@ -82,7 +82,17 @@ function* fetchFlighttoEdit(action){
 }
 
 function* updateFlight(action){
+    try{
+       const editedFlight = action.payload 
+        
+       yield axios.put(`/api/flights/${editedFlight.id}`, editedFlight)
 
+        yield put({
+            type: 'FETCH_MY_FLIGHTS'
+        })
+    } catch (error){
+        console.log('Update flight error', error)
+    }
 
 
 }

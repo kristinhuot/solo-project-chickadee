@@ -74,7 +74,34 @@ router.delete(`/:flight_id`, (req, res) => {
 
 // EDIT a flight 
 
+// Updates user data after registering and completing the My Nest inputs
+router.put(`/:id`, (req, res) => {
 
+    console.log('in PUT route, req.body', req.body);
+    const flightID = req.params.id; 
+    const flightTitle = req.body.flight_title
+    const flightDetails = req.body.flight_details
+    const dateValue = req.body.flight_date
+    const formattedDate = new Date(dateValue).toISOString().split('T')[0]
+    // converts birthday data into an object to parse correctly. Converts object into
+    // an ISO string, splits the string on the 't' to separate the date and time. Take
+    // the first part of the split array (date format portion)
+  
+    const queryText = `
+      UPDATE "flights"
+      SET flight_title = $1, flight_details = $2, flight_date = $3
+      WHERE id = $4;
+    `
+    pool.query(queryText, [flightTitle, flightDetails, formattedDate, flightID])
+      .then(()=> {
+        res.sendStatus(200);
+      })
+        .catch((err) => {
+          console.log('Error updating flight', err);
+          res.sendStatus(500); 
+        })
+  })
+  
 
 
 // GET the data for a single flight in order to view for editing 
