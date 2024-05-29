@@ -1,4 +1,4 @@
-import { Container, Typography, TextField, Button, } from "@mui/material"; 
+import { Container, Typography, TextField, Button, Paper } from "@mui/material"; 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { useState } from "react";
@@ -28,8 +28,8 @@ function MyNest(){
 
 return (
 <Container>
-    <Container sx={{bgcolor:'#717D92', height:'50'}}>
-        <Typography fontSize={40} variant="h2" textAlign="center">My Nest</Typography>
+    <Container sx={{height:'50'}}>
+        <Paper><Typography bgcolor="#717D92" fontSize={40} variant="h2" textAlign="center">My Nest</Typography></Paper>
     </Container>
 
     <Container>

@@ -1,4 +1,4 @@
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, TextField, Typography, Paper } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -54,10 +54,11 @@ try{
 return (
 
 <Container>   
-    <Container sx={{bgcolor:'#717D92', height:'50'}}>
-        <Typography fontSize={40} variant="h2" textAlign="center">My Care Preferences</Typography>
+    <Container sx={{height:'50'}}>
+        <Paper><Typography bgcolor="#717D92" fontSize={40} variant="h2" textAlign="center">My Care Preferences</Typography></Paper>
     </Container>
 
+    <Container>
     <Typography margin={2} fontSize={25} variant="h3" textAlign="center">I prefer to receive care in the following ways. Select all that apply</Typography>
 
     <Box display="flex" flexWrap="wrap" gap={2}>
@@ -205,7 +206,7 @@ return (
     </Box> 
 
     <Button variant="contained" onSubmit={submitPreferences}>Save Preferences</Button>
-
+    </Container>
 </Container>
 
 )

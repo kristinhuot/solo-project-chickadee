@@ -19,7 +19,6 @@ return(
 <Container>    
     <main>
     <Container sx={{height:'50'}}>
-        {/* <Typography fontSize={40} variant="h2" textAlign="center">Welcome, {user.username}!</Typography> */}
         <Paper><Typography bgcolor="#717D92" fontSize={40} variant="h2" textAlign="center">My Flock's Flights</Typography></Paper>
     </Container>
         <section>  {/* Conditionally renders the flights as long as the flights reducer is not empty. Otherwise, directs users to add their first flight */}

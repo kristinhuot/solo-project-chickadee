@@ -57,7 +57,9 @@ const submitNewFlight = () => {
 return (
 
 <Container>
-    <Paper sx={{bgcolor:'#717D92', height:'50'}}><Typography fontSize={40} variant="h2" textAlign="center">Add a Flight</Typography></Paper>
+    <Container sx={{height:'50'}}>
+        <Paper><Typography bgcolor="#717D92" fontSize={40} variant="h2" textAlign="center">Add a Flight</Typography></Paper>
+    </Container>
     
     <Container>
         <form>

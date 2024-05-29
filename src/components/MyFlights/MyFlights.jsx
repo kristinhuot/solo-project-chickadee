@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography, Paper } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -28,8 +28,8 @@ useEffect(() => {
 return(
 <Container>    
     <main>
-    <Container sx={{bgcolor:'#717D92', height:'50'}}>
-        <Typography fontSize={40} variant="h2" textAlign="center">My Flights</Typography>
+    <Container sx={{height:'50'}}>
+        <Paper><Typography bgcolor="#717D92" fontSize={40} variant="h2" textAlign="center">My Flights</Typography></Paper>
     </Container>
         <section>
             {myflights && myflights.length > 0 ? (
