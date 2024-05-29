@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS "shared_flights" CASCADE;
 DROP TABLE IF EXISTS "care_methods" CASCADE;
 DROP TABLE IF EXISTS "flights" CASCADE;
 DROP TABLE IF EXISTS "user" CASCADE;
-
+DROP TABLE IF EXISTS "custom_care_methods" CASCADE; 
 ---------------------------------------------------------------------------
 
 
@@ -32,7 +32,6 @@ CREATE TABLE "flights" (
 );
 CREATE TABLE "shared_flights" (
 	"id" SERIAL PRIMARY KEY, 
-	"flight_id" int REFERENCES "flights" ON DELETE CASCADE, 
 	"shared_with_user_id" INTEGER, 
 	"user_id" int REFERENCES "user" ON DELETE CASCADE 
 );
@@ -52,9 +51,41 @@ CREATE TABLE "custom_care_methods" (
 	"id" SERIAL PRIMARY KEY, 
 	"custom_text" VARCHAR (300),
 	"user_id" int REFERENCES "user" ON DELETE CASCADE 
-);
+	);
+
+SELECT 
+	flights.id AS "flight_id",
+	flights.user_id,
+	flights.flight_title,
+	flights.flight_date,
+	flights.flight_details,
+	shared_flights.id AS "shared_id",
+	shared_flights.shared_with_user_id AS "share_code",
+	shared_flights.user_id
+FROM "flights"
+		JOIN "shared_flights"
+	ON flights.user_id = shared_flights.user_id
+	WHERE shared_flights.shared_with_user_id IS NOT NULL 
+            ORDER BY "flight_date" DESC
 
 
-
-	
-	
+SELECT 
+	flights.id AS "flight_id",
+	flights.user_id,
+	flights.flight_title,
+	flights.flight_date,
+	flights.flight_details,
+	shared_flights.id AS "shared_id",
+	shared_flights.shared_with_user_id AS "share_code",
+	shared_flights.user_id,
+	"user"."id" AS "user_id",
+	"user"."name",
+	"user"."pronouns",
+	"user"."birthday"
+FROM "flights"
+		JOIN "shared_flights"
+	ON flights.user_id = shared_flights.user_id
+		JOIN "user" 	
+	ON shared_flights.user_id = "user"."id"
+	WHERE "shared_flights".user_id = $1
+            ORDER BY "flight_date" DESC

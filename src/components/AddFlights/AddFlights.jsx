@@ -1,4 +1,4 @@
-import { Container, TextField, Typography, Box, Button, Modal } from "@mui/material";
+import { Container, TextField, Typography, Box, Button, Modal, Paper } from "@mui/material";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { useState } from "react";
 import dayjs from "dayjs";
@@ -57,9 +57,8 @@ const submitNewFlight = () => {
 return (
 
 <Container>
-    <Container sx={{bgcolor:'#B18C9E', height:'50'}}>
-        <Typography fontSize={40} variant="h2" textAlign="center">Add a Flight</Typography>
-    </Container>
+    <Paper sx={{bgcolor:'#717D92', height:'50'}}><Typography fontSize={40} variant="h2" textAlign="center">Add a Flight</Typography></Paper>
+    
     <Container>
         <form>
             <TextField 
@@ -67,6 +66,7 @@ return (
             value={flightTitle} 
             label="Flight Title"
             margin="dense"
+            sx={{mb:2, mt: 4}}
             multiline
             />
         </form>
@@ -78,6 +78,7 @@ return (
             label="Flight Details"
             margin="dense"
             multiline
+            sx={{mb:2, mt: 2}}
             />
         </form>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -86,6 +87,7 @@ return (
                 value={flightDate} 
                 label="Flight Date"
                 margin="dense"
+                sx={{mb:4, mt: 2}}
                  />
             </LocalizationProvider>
     </Container>
