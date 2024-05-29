@@ -194,6 +194,7 @@ return (
             ><TextField 
                 label='+ add other'
                 size="small"
+                multiline
                 onChange={handleInput}
                 value={newCareMethod}
             />

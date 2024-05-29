@@ -67,11 +67,13 @@ return (
             value={flightTitle} 
             label="Flight Title"
             margin="dense"
+            multiline
             />
         </form>
         <form>
             <TextField 
             onChange={(e) => setFlightDetails(e.target.value)} 
+            multiline
             value={flightDetails} 
             label="Flight Details"
             margin="dense"
