@@ -77,7 +77,6 @@ return (
             value={flightDetails} 
             label="Flight Details"
             margin="dense"
-            multiline
             sx={{mb:2, mt: 2}}
             />
         </form>
