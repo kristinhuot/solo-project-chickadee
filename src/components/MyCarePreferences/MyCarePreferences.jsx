@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 // allows users to indicate their preferred care methods and stores them to the database 
 function MyCarePreferences(){
 
-const [newCareMethod, setNewCareMethod] = useState(''); 
+const [newCareMethod, setNewCareMethod] = useState('') 
 const dispatch = useDispatch()
+const [timeTogether, setTimeTogether] = useState(false)
+const [niceThings, setNiceThings] = useState(false)
 
 
 const submitPreferences = () => {
@@ -24,6 +26,28 @@ const submitPreferences = () => {
 
 }
 
+function handleTimeTogether(e){
+   
+    try{
+        if(timeTogether) {
+            dispatch({
+                type: 'REMOVE_CARE_METHOD',
+                payload: timeTogether
+            })
+            setTimeTogether(false)
+        } else {
+            dispatch({
+                type: 'ADD_CARE_METHOD',
+                payload: timeTogether
+            })
+            setTimeTogether(true)
+        }
+    
+    } catch(error){
+        console.log('Error handling time together click', error);
+    }
+    
+}
 
 function handleInput(e){
     setNewCareMethod(e.target.value)
@@ -63,7 +87,7 @@ return (
 
     <Box display="flex" flexWrap="wrap" gap={2}>
         <Box   
-            onClick={handleClick}
+            onClick={handleTimeTogether}
             height={25}
             width={100}
             my={4}
@@ -77,7 +101,7 @@ return (
                 alignItems: 'center',
                 justifyContent: 'center', 
                 textAlign: 'center',
-                backgroundColor: '#E6E6E6'
+                backgroundColor: timeTogether ? '#6D7D98' : '#E6E6E6' 
             }}
             >time together
         </Box>
@@ -96,7 +120,7 @@ return (
                  alignItems: 'center',
                  justifyContent: 'center', 
                  textAlign: 'center',
-                 backgroundColor: '#E6E6E6'
+                 backgroundColor: niceThings ? '#E6E6E6' : '#6D7D98'
              }}
             >tell me nice things
         </Box>
