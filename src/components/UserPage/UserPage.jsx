@@ -31,7 +31,7 @@ return(
                         p={2} 
                         m={3}
                         sx={{ 
-                            border: '2px solid grey', backgroundColor: '#AE9C8E'
+                            border: '2px solid grey', backgroundColor: '#C9C9CB'
                         }}
                         > 
                             <Typography m={2} fontSize={24} variant='h3'>Flight Name: {flight.flight_title}</Typography>
