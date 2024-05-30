@@ -5,6 +5,7 @@ import flights from './flights.reducer'
 import caremethods from './caremethods.reducer'
 import myflights from './myflights.reducer'
 import editflight from './editflight.reducer';
+import flockmate from './flockmate.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   caremethods, // contains preferred care methods for a single user
   myflights, // contains data for a single user's flights
   editflight, // contains data for flight that is being edited
+  flockmate // contains data for flockmates 
 });
 
 export default rootReducer;

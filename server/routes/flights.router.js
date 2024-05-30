@@ -2,7 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-// GET all flights 
+// GET all flights for all 'friended' users
 router.get('/', (req, res) => {
 console.log('req.user.id is', req.user.id)
 

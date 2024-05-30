@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { Box, Container, Typography, Paper } from '@mui/material';
 import dayjs from 'dayjs';
 
-function FlockFlights(){
+function Flight(){
 
 const flights = useSelector(store => store.flockmate)
 const dispatch = useDispatch(); 
@@ -49,4 +49,4 @@ return(
 )
 }
 
-export default FlockFlights; 
+export default Flight; 

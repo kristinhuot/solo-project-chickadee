@@ -7,7 +7,7 @@ function* fetchFlights() {
        const response = yield axios.get('/api/flights')
 
         yield put({
-            type: 'SET_FLIGHTS',
+            type: 'SET_MY_FLOCK',
             payload: response.data
         })
     } catch(error) {
@@ -98,12 +98,12 @@ function* updateFlight(action){
 }
 
 function* flightsSaga() {
-  yield takeLatest('FETCH_FLIGHTS', fetchFlights)
   yield takeLatest('SUBMIT_NEW_FLIGHT', addFlight)
   yield takeLatest('FETCH_MY_FLIGHTS', fetchMyFlights)
   yield takeLatest('DELETE_FLIGHT', deleteFlight)
   yield takeLatest('FETCH_FLIGHT_TO_EDIT', fetchFlighttoEdit)
   yield takeLatest('UPDATE_FLIGHT', updateFlight);
+  yield takeLatest('FETCH_FLOCK', fetchFlights)
 }
 
 export default flightsSaga;
