@@ -52,7 +52,7 @@ return(
                 );
             })
         ) : (
-            <p>No flights found! Please go to Add a Flight to add your first flight</p>
+            <Typography margin={2} fontSize={25} variant="h3" textAlign="center">No flights found! Fly on over to Add a Flight to get started with your first flight</Typography>
         )}
         </section>
     </main>
