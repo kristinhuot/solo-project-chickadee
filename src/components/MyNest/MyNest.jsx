@@ -3,7 +3,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
 
 // collects user inputs for their profile and saves them to the database 
@@ -16,6 +16,9 @@ function MyNest(){
     const [photo, setPhoto] = useState('')
     const history = useHistory()
     const dispatch = useDispatch()
+    const user = useSelector(store => store.user)
+
+    console.log('user is', user);
 
     const submitMyNestInputs = () => {
 
@@ -31,6 +34,8 @@ return (
     <Container sx={{height:'50'}}>
         <Paper><Typography bgcolor="#717D92" fontSize={40} variant="h2" textAlign="center">My Nest</Typography></Paper>
     </Container>
+
+    <Typography margin={2} fontSize={25} variant="h3" textAlign="center">Welcome to the flock, {user.username}! Lets get started by learning a little about you</Typography>
 
     <Container>
     <form>

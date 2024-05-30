@@ -60,6 +60,7 @@ return (
     <Container sx={{height:'50'}}>
         <Paper><Typography bgcolor="#717D92" fontSize={40} variant="h2" textAlign="center">Add a Flight</Typography></Paper>
     </Container>
+    <Typography margin={2} fontSize={25} variant="h3" textAlign="center">Add Flights to help your flock keep track of what matters most to you</Typography>
     
     <Container>
         <form>

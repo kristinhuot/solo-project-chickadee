@@ -83,7 +83,7 @@ return (
     </Container>
 
     <Container>
-    <Typography margin={2} fontSize={25} variant="h3" textAlign="center">I prefer to receive care in the following ways. Select all that apply</Typography>
+    <Typography margin={2} fontSize={25} variant="h3" textAlign="center">Finish setting up your profile by indicating the ways in which you prefer to receive care. Select all that apply</Typography>
 
     <Box display="flex" flexWrap="wrap" gap={2}>
         <Box   
