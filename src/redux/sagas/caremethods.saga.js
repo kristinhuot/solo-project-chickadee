@@ -1,13 +1,13 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* deleteCareMethod(action) {
+function* updateCareMethod(action) {
 
     try{
-        const response = yield axios.delete(`/api/caremethods/${action.payload.method_id}`)
+        const response = yield axios.put(`/api/caremethods/${action.payload.method_id}`)
 
         yield put({
-            type: 'DELETE_CARE_METHOD',
+            type: 'SET_CARE_METHOD',
             payload: response.data
         })
     } catch(error) {
@@ -21,7 +21,7 @@ function* addCareMethod(action){
         const response = yield axios.post('/api/caremethods', action.payload)
  
          yield put({
-             type: 'POST_CARE_METHOD',
+             type: 'SET_CARE_METHOD',
              payload: response.data
          })
      } catch(error) {
@@ -31,7 +31,7 @@ function* addCareMethod(action){
 
 
 function* careMethodsSaga() {
-  yield takeLatest('REMOVE_CARE_METHOD', deleteCareMethod);
+  yield takeLatest('UPDATE_CARE_PREFERENCES', updateCareMethod);
   yield takeLatest('CREATE_CARE_PREFERENCES', addCareMethod)
 }
 

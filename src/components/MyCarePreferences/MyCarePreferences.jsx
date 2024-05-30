@@ -35,13 +35,13 @@ function handleTimeTogether(e){
     try{
         if(timeTogether) {
             dispatch({
-                type: 'SET_TO_FALSE',
+                type: 'UPDATE_CARE_PREFERENCES',
                 payload: timeTogether
             })
             setTimeTogether(false)
         } else {
             dispatch({
-                type: 'SET_TO_TRUE',
+                type: 'UPDATE_CARE_PREFERENCES',
                 payload: timeTogether
             })
             setTimeTogether(true)
