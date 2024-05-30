@@ -49,7 +49,7 @@ return(
                 );
             })
         ) : ( 
-            <Typography margin={2} fontSize={25} variant="h3" textAlign="center">No flights found! Add others to your flock to stay connected</Typography>
+            <Typography margin={2} fontSize={25} variant="h3" textAlign="center">No flights found! Add others to your flock and stay connected</Typography>
         )}
         </section>
     </main>
