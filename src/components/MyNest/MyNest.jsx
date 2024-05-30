@@ -26,6 +26,10 @@ function MyNest(){
         type: 'SUBMIT_NEST_INPUTS',
         payload: {name, pronouns, birthday, location, photo}
     })
+
+    dispatch({
+        type: 'CREATE_CARE_PREFERENCES'
+    })
     history.push('my_care_preferences')
 }
 

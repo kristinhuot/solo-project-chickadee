@@ -65,7 +65,7 @@ function EditFlight() {
 
   return (
     <Container>
-      <Container sx={{ bgcolor: "#B18C9E", height: "50" }}>
+      <Container sx={{ bgcolor: "#717D92", height: "50" }}>
         <Typography fontSize={40} variant="h2" textAlign="center">
           Edit Flight
         </Typography>
@@ -81,6 +81,7 @@ function EditFlight() {
                 label="Flight Title"
                 margin="dense"
                 multiline
+                sx={{mb:2, mt: 4}}
               ></TextField>
             )}
           </Container>
@@ -92,6 +93,7 @@ function EditFlight() {
                   value={flightDateToEdit}
                   label="Flight Date"
                   margin="dense"
+                  sx={{mb:2, mt: 4}}
                 />
               </LocalizationProvider>
             )}
@@ -104,12 +106,13 @@ function EditFlight() {
                 label="Flight Details"
                 margin="dense"
                 multiline
+                sx={{mb:2, mt: 4}}
               ></TextField>
             )}
           </Container>
         </FormControl>
         <Container>
-          <Button onClick={updateFlight} variant="contained">
+          <Button sx={{mb:2, mt: 4}} onClick={updateFlight} variant="contained">
             Submit Changes
           </Button>
         </Container>

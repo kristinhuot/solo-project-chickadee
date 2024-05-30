@@ -8,7 +8,11 @@ function MyCarePreferences(){
 const [newCareMethod, setNewCareMethod] = useState('') 
 const dispatch = useDispatch()
 const [timeTogether, setTimeTogether] = useState(false)
-const [niceThings, setNiceThings] = useState(false)
+const [tellMeNiceThings, setTellMeNiceThings] = useState(false)
+const [sendMeNiceThings, setSendMeNiceThings] = useState(false)
+const [doNiceThings, setDoNiceThings] = useState(false)
+const [hugs, setHugs] = useState(false)
+const [surprises, setSurprises] = useState(false)
 
 
 const submitPreferences = () => {
@@ -31,13 +35,13 @@ function handleTimeTogether(e){
     try{
         if(timeTogether) {
             dispatch({
-                type: 'REMOVE_CARE_METHOD',
+                type: 'SET_TO_FALSE',
                 payload: timeTogether
             })
             setTimeTogether(false)
         } else {
             dispatch({
-                type: 'ADD_CARE_METHOD',
+                type: 'SET_TO_TRUE',
                 payload: timeTogether
             })
             setTimeTogether(true)
@@ -49,30 +53,123 @@ function handleTimeTogether(e){
     
 }
 
+function handleTellMeNiceThings(e){
+    try{
+        if(tellMeNiceThings) {
+            dispatch({
+                type: 'REMOVE_CARE_METHOD',
+                payload: tellMeNiceThings
+            })
+            setTellMeNiceThings(false)
+        } else {
+            dispatch({
+                type: 'ADD_CARE_METHOD',
+                payload: tellMeNiceThings
+            })
+            setTellMeNiceThings(true)
+        }
+    
+    } catch(error){
+        console.log('Error handling tell me nice things click', error);
+    }
+    
+}
+
+function handleSendMeNiceThings(e){
+    try{
+        if(sendMeNiceThings) {
+            dispatch({
+                type: 'REMOVE_CARE_METHOD',
+                payload: sendMeNiceThings
+            })
+            setSendMeNiceThings(false)
+        } else {
+            dispatch({
+                type: 'ADD_CARE_METHOD',
+                payload: sendMeNiceThings
+            })
+            setSendMeNiceThings(true)
+        }
+    
+    } catch(error){
+        console.log('Error handling send me nice things click', error);
+    }
+    
+}
+
+function handleDoNiceThings(e){
+    try{
+        if(doNiceThings) {
+            dispatch({
+                type: 'REMOVE_CARE_METHOD',
+                payload: doNiceThings
+            })
+            setDoNiceThings(false)
+        } else {
+            dispatch({
+                type: 'ADD_CARE_METHOD',
+                payload: doNiceThings
+            })
+            setDoNiceThings(true)
+        }
+    
+    } catch(error){
+        console.log('Error handling do nice things click', error);
+    }
+    
+}
+
+function handleHugsPlease(e){
+    try{
+        if(hugs) {
+            dispatch({
+                type: 'REMOVE_CARE_METHOD',
+                payload: hugs
+            })
+            setHugs(false)
+        } else {
+            dispatch({
+                type: 'ADD_CARE_METHOD',
+                payload: hugs
+            })
+            setHugs(true)
+        }
+    
+    } catch(error){
+        console.log('Error handling hugs, please click', error);
+    }
+    
+}
+
+function handleSurprises(e){
+    try{
+        if(surprises) {
+            dispatch({
+                type: 'REMOVE_CARE_METHOD',
+                payload: surprises
+            })
+            setSurprises(false)
+        } else {
+            dispatch({
+                type: 'ADD_CARE_METHOD',
+                payload: surprises
+            })
+            setSurprises(true)
+        }
+    
+    } catch(error){
+        console.log('Error handling surprises click', error);
+    }
+    
+}
+
+
+
+
 function handleInput(e){
     setNewCareMethod(e.target.value)
 }
 
-function handleClick(method){
-
-try{
-    if(isAdded) {
-        dispatch({
-            type: 'REMOVE_CARE_METHOD',
-            payload: method
-        })
-        setIsAdded(false)
-    } else {
-        dispatch({
-            type: 'ADD_CARE_METHOD',
-            payload: method
-        })
-        setIsAdded(true)
-    }
-
-} catch(error){
-    console.log('Error handling care method click', error);
-}}
 
  
 return (
@@ -106,7 +203,7 @@ return (
             >time together
         </Box>
         <Box
-             onClick={handleClick}
+             onClick={handleTellMeNiceThings}
              height={25}
              width={100}
              my={4}
@@ -120,12 +217,12 @@ return (
                  alignItems: 'center',
                  justifyContent: 'center', 
                  textAlign: 'center',
-                 backgroundColor: niceThings ? '#E6E6E6' : '#6D7D98'
+                 backgroundColor: tellMeNiceThings ? '#6D7D98' : '#E6E6E6' 
              }}
             >tell me nice things
         </Box>
         <Box   
-            onClick={handleClick}
+            onClick={handleSendMeNiceThings}
             height={25}
             width={100}
             my={4}
@@ -139,12 +236,12 @@ return (
                 alignItems: 'center',
                 justifyContent: 'center', 
                 textAlign: 'center',
-                backgroundColor: '#E6E6E6'
+                backgroundColor: sendMeNiceThings ? '#6D7D98' : '#E6E6E6' 
             }}
             >send me nice things
         </Box>
         <Box   
-            onClick={handleClick}
+            onClick={handleDoNiceThings}
             height={25}
             width={100}
             my={4}
@@ -158,12 +255,12 @@ return (
                 alignItems: 'center',
                 justifyContent: 'center', 
                 textAlign: 'center',
-                backgroundColor: '#E6E6E6'
+                backgroundColor: doNiceThings ? '#6D7D98' : '#E6E6E6' 
             }}
             >do nice things for me
         </Box>
         <Box   
-            onClick={handleClick}
+            onClick={handleHugsPlease}
             height={25}
             width={100}
             my={4}
@@ -177,12 +274,12 @@ return (
                 alignItems: 'center',
                 justifyContent: 'center', 
                 textAlign: 'center',
-                backgroundColor: '#E6E6E6'
+                backgroundColor: hugs ? '#6D7D98' : '#E6E6E6' 
             }}
             >hugs, please!
         </Box>
         <Box   
-            onClick={handleClick}
+            onClick={handleSurprises}
             height={25}
             width={100}
             my={4}
@@ -196,7 +293,7 @@ return (
                 alignItems: 'center',
                 justifyContent: 'center', 
                 textAlign: 'center',
-                backgroundColor: '#E6E6E6'
+                backgroundColor: surprises ? '#6D7D98' : '#E6E6E6' 
             }}
             >surprises!
         </Box>
