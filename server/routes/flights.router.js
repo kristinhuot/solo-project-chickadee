@@ -33,6 +33,7 @@ WHERE shared_flights.user_id = $1
     pool.query(query, [userID])
         .then(result => {
             res.send(result.rows)
+            console.log('this is result.rows', result.rows);
         })
         .catch(err => {
             console.log('Error in GET /flights', err);

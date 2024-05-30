@@ -27,8 +27,8 @@ return(
             {flights && flights.length > 0 ? (
                 flights.map((flight) => {
                     return ( 
-                        <Container sx={{margin: 4}} key={flight.shared_flight_id}>    
-                            <Card sx={{ maxWidth: 800, display: 'flex', alignItems: 'center' }}>
+                        <Container sx={{margin: 4, alignItems: 'center'}} key={flight.flight_id}>    
+                            <Card sx={{ maxWidth: 875, display: 'flex', alignItems: 'center' }}>
                                 <Avatar
                                  src={flight.photo_url}
                                  alt="Flockmate Photo"
