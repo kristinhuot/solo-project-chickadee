@@ -19,7 +19,7 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <img alt="Songbird on a branch" src="chickadee_pic.png"/>
+          <img alt="Songbird on a branch" src="favicon.ico"/>
         </div>
         <div className="grid-col grid-col_4">
           <RegisterForm />

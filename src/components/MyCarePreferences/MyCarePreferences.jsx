@@ -36,7 +36,7 @@ function handleTimeTogether(e){
         if(timeTogether) {
             dispatch({
                 type: 'UPDATE_CARE_PREFERENCES',
-                payload: timeTogether
+                payload: 'time_together'
             })
             setTimeTogether(false)
         } else {

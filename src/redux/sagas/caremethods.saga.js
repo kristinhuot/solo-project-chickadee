@@ -4,7 +4,7 @@ import axios from 'axios';
 function* updateCareMethod(action) {
 
     try{
-        const response = yield axios.put(`/api/caremethods/${action.payload.method_id}`)
+        const response = yield axios.put(`/api/caremethods/${action.payload}`)
 
         yield put({
             type: 'SET_CARE_METHOD',
