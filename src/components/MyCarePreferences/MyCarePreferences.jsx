@@ -31,18 +31,17 @@ const submitPreferences = () => {
 }
 
 function handleTimeTogether(e){
-   
     try{
         if(timeTogether) {
             dispatch({
-                type: 'UPDATE_CARE_PREFERENCES',
+                type: 'TOGGLE_PREFERENCE',
                 payload: 'time_together'
             })
             setTimeTogether(false)
         } else {
             dispatch({
-                type: 'UPDATE_CARE_PREFERENCES',
-                payload: timeTogether
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'time_together'
             })
             setTimeTogether(true)
         }
@@ -57,14 +56,14 @@ function handleTellMeNiceThings(e){
     try{
         if(tellMeNiceThings) {
             dispatch({
-                type: 'REMOVE_CARE_METHOD',
-                payload: tellMeNiceThings
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'tell_me_nice_things'
             })
             setTellMeNiceThings(false)
         } else {
             dispatch({
-                type: 'ADD_CARE_METHOD',
-                payload: tellMeNiceThings
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'tell_me_nice_things'
             })
             setTellMeNiceThings(true)
         }
@@ -79,14 +78,14 @@ function handleSendMeNiceThings(e){
     try{
         if(sendMeNiceThings) {
             dispatch({
-                type: 'REMOVE_CARE_METHOD',
-                payload: sendMeNiceThings
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'send_me_nice_things'
             })
             setSendMeNiceThings(false)
         } else {
             dispatch({
-                type: 'ADD_CARE_METHOD',
-                payload: sendMeNiceThings
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'send_me_nice_things'
             })
             setSendMeNiceThings(true)
         }
@@ -101,14 +100,14 @@ function handleDoNiceThings(e){
     try{
         if(doNiceThings) {
             dispatch({
-                type: 'REMOVE_CARE_METHOD',
-                payload: doNiceThings
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'do_nice_things_for_me'
             })
             setDoNiceThings(false)
         } else {
             dispatch({
-                type: 'ADD_CARE_METHOD',
-                payload: doNiceThings
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'do_nice_things_for_me'
             })
             setDoNiceThings(true)
         }
@@ -123,14 +122,14 @@ function handleHugsPlease(e){
     try{
         if(hugs) {
             dispatch({
-                type: 'REMOVE_CARE_METHOD',
-                payload: hugs
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'hugs_please'
             })
             setHugs(false)
         } else {
             dispatch({
-                type: 'ADD_CARE_METHOD',
-                payload: hugs
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'hugs_please'
             })
             setHugs(true)
         }
@@ -145,14 +144,14 @@ function handleSurprises(e){
     try{
         if(surprises) {
             dispatch({
-                type: 'REMOVE_CARE_METHOD',
-                payload: surprises
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'surprises'
             })
             setSurprises(false)
         } else {
             dispatch({
-                type: 'ADD_CARE_METHOD',
-                payload: surprises
+                type: 'TOGGLE_PREFERENCE',
+                payload: 'surprises'
             })
             setSurprises(true)
         }

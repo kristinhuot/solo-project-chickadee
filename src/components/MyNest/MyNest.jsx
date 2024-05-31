@@ -22,13 +22,20 @@ function MyNest(){
 
     const submitMyNestInputs = () => {
 
+        const time_together = false 
+        const tell_me_nice_things = false
+        const do_nice_things_for_me = false
+        const hugs_please = false
+        const surprises = false
+
     dispatch({
         type: 'SUBMIT_NEST_INPUTS',
         payload: {name, pronouns, birthday, location, photo}
     })
 
     dispatch({
-        type: 'CREATE_CARE_PREFERENCES'
+        type: 'CREATE_CARE_PREFERENCES', 
+        payload: {time_together, tell_me_nice_things, do_nice_things_for_me, hugs_please, surprises}
     })
     history.push('my_care_preferences')
 }

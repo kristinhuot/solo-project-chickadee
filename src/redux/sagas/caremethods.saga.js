@@ -1,17 +1,18 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* updateCareMethod(action) {
 
+function* toggleCarePreference(action) {
+console.log('action.payload is', action.payload);
     try{
-        const response = yield axios.put(`/api/caremethods/${action.payload}`)
+        const response = yield axios.put(`/api/caremethods/`, {method: action.payload})
 
         yield put({
             type: 'SET_CARE_METHOD',
             payload: response.data
         })
     } catch(error) {
-        console.log('delete care method failed', error);
+        console.log('Toggle care method failed', error);
     }
 }
 
@@ -21,7 +22,7 @@ function* addCareMethod(action){
         const response = yield axios.post('/api/caremethods', action.payload)
  
          yield put({
-             type: 'SET_CARE_METHOD',
+             type: 'GET_CARE_METHODS',
              payload: response.data
          })
      } catch(error) {
@@ -30,9 +31,27 @@ function* addCareMethod(action){
 }
 
 
+function* getCareMethods () {
+    try{
+        const response = yield axios.get('/api/caremethods')
+ 
+         yield put({
+             type: 'SET_CARE_METHOD',
+             payload: response.data
+         })
+     } catch(error) {
+         console.log('Get care method failed', error);
+     }
+
+
+}
+
+
+
 function* careMethodsSaga() {
-  yield takeLatest('UPDATE_CARE_PREFERENCES', updateCareMethod);
+  yield takeLatest('TOGGLE_PREFERENCE', toggleCarePreference);
   yield takeLatest('CREATE_CARE_PREFERENCES', addCareMethod)
+  yield takeLatest('GET_CARE_METHODS', getCareMethods)
 }
 
 export default careMethodsSaga;
