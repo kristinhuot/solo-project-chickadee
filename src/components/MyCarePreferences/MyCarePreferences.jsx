@@ -1,12 +1,14 @@
 import { Box, Button, Container, TextField, Typography, Paper } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 // allows users to indicate their preferred care methods and stores them to the database 
 function MyCarePreferences(){
 
 const [newCareMethod, setNewCareMethod] = useState('') 
 const dispatch = useDispatch()
+const history = useHistory()
 const [timeTogether, setTimeTogether] = useState(false)
 const [tellMeNiceThings, setTellMeNiceThings] = useState(false)
 const [sendMeNiceThings, setSendMeNiceThings] = useState(false)
@@ -15,8 +17,9 @@ const [hugs, setHugs] = useState(false)
 const [surprises, setSurprises] = useState(false)
 
 
-const submitPreferences = () => {
+const submitPreferences = (e) => {
 
+    history.push('my_flights') 
     // dispatch({
     //     type: 'SUBMIT_NEW_CARE_METHOD',
     //     payload: newCareMethod
@@ -325,7 +328,7 @@ return (
     
     </Box> 
 
-    <Button variant="contained" onSubmit={submitPreferences}>Save Preferences</Button>
+    <Button variant="contained" onClick={submitPreferences}>Save Preferences</Button>
     </Container>
 </Container>
 
