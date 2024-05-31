@@ -10,6 +10,7 @@ function* fetchFlights() {
             type: 'SET_MY_FLOCK',
             payload: response.data
         })
+        console.log('response.data is', response.data);
     } catch(error) {
         console.log('fetch Flights failed', error);
     }

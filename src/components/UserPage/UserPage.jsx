@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Box, Container, Typography, Card, CardContent, CardMedia, Paper, Avatar } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent, Paper, Avatar } from '@mui/material';
 import dayjs from 'dayjs';
 
 function FlockFlights(){

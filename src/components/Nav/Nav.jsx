@@ -36,12 +36,12 @@ function Nav() {
               My Care Preferences
             </Link>
 
-            <Link className="navLink" to="/my_flights">
-              My Flights
-            </Link>
-
             <Link className="navLink" to="/add_flights">
               Add a Flight 
+            </Link>
+
+            <Link className="navLink" to="/my_flights">
+              My Flights
             </Link>
 
             <Link className="navLink" to="/add_to_flock">

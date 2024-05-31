@@ -19,7 +19,7 @@ const [surprises, setSurprises] = useState(false)
 
 const submitPreferences = (e) => {
 
-    history.push('my_flights') 
+    history.push('add_flights') 
     // dispatch({
     //     type: 'SUBMIT_NEW_CARE_METHOD',
     //     payload: newCareMethod
