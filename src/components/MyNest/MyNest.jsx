@@ -95,7 +95,7 @@ return (
         fullWidth
         />
     </form>
-    <Button onClick={submitMyNestInputs} variant="contained">Preferences</Button>
+    <Button onClick={submitMyNestInputs} sx={{backgroundColor: '#AE9C8E'}} variant="contained">Preferences</Button>
 
     </Container>
 </Container>

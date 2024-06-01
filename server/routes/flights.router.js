@@ -28,7 +28,7 @@ FROM shared_flights
 	JOIN "user"
 	  ON flights.user_id = "user".id  
 WHERE shared_flights.user_id = $1
-            ORDER BY "flight_date" DESC; 
+            ORDER BY "flight_date" ASC; 
     `
     pool.query(query, [userID])
         .then(result => {

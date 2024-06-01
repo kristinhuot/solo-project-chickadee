@@ -35,16 +35,16 @@ return(
 
         <Box m={4} p={4}>
             <Box m={2} p={2} xs={12}>
-                <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#C9C9CB', margin:'2', padding:'2' }}>
-                    <Container><Typography fontSize={24} variant="h3" sx={{ mb: 2, mt: 2 }}> Add to your flock by generating and sharing your flock code</Typography></Container>
-                    <Button onClick={handleGenerateCode} variant="contained" sx={{ mb: 2 }}>Generate My Share Code</Button>
+                <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#white', margin:'2', padding:'2' }}>
+                    <Container><Typography fontSize={24} variant="h3" sx={{ mb: 2, mt: 2,  textAlign: 'center' }}> Add to your flock by generating and sharing your flock code</Typography></Container>
+                    <Button onClick={handleGenerateCode} variant="contained" sx={{ mb: 2, backgroundColor: '#AE9C8E'}}>Generate My Share Code</Button>
                     <Container><TextField value={shareCode} fullWidth sx={{ mb: 2 }}></TextField></Container>
                 </Paper>
             </Box>
             <Box m={2} p={2} xs={12}>
-                <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#C9C9CB' }}>
-                    <Container><Typography fontSize={24} variant="h3" sx={{ mb: 2, mt: 2 }}> Add a new flockmate by entering their flock code below</Typography></Container>
-                    <Button onClick={handleAddFlockmate} variant="contained" sx={{ mb: 2 }}>Add to My Flock</Button>
+                <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor:'#white' }}>
+                    <Container><Typography fontSize={24} variant="h3" sx={{ mb: 2, mt: 2, textAlign: 'center' }}> Add a new flockmate by entering their flock code below</Typography></Container>
+                    <Button onClick={handleAddFlockmate} variant="contained" sx={{ mb: 2, backgroundColor: '#AE9C8E' }}>Add to My Flock</Button>
                     <Container><TextField onChange={(e) => setFlockmateInput(e.target.value)} value={flockmateInput} fullWidth sx={{ mb: 2 }}></TextField></Container>
                 </Paper>
             </Box>

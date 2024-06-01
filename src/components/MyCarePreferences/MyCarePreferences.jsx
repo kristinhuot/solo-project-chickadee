@@ -24,13 +24,6 @@ const submitPreferences = (e) => {
     //     type: 'SUBMIT_NEW_CARE_METHOD',
     //     payload: newCareMethod
     // })
-
-    dispatch({
-        type: 'TOGGLE_CARE_METHOD',
-
-    })
-
-
 }
 
 function handleTimeTogether(e){
@@ -166,12 +159,9 @@ function handleSurprises(e){
 }
 
 
-
-
-function handleInput(e){
-    setNewCareMethod(e.target.value)
-}
-
+// function handleInput(e){
+//     setNewCareMethod(e.target.value)
+// }
 
  
 return (
@@ -181,7 +171,7 @@ return (
         <Paper><Typography bgcolor="#717D92" fontSize={40} variant="h2" textAlign="center">My Care Preferences</Typography></Paper>
     </Container>
 
-    <Container>
+    <Container marginBottom={10}>
     <Typography margin={2} fontSize={25} variant="h3" textAlign="center">Finish setting up your profile by indicating the ways in which you prefer to receive care. Select all that apply</Typography>
 
     <Box display="flex" flexWrap="wrap" gap={2}>
@@ -299,7 +289,7 @@ return (
             }}
             >surprises!
         </Box>
-        <Box  
+        {/* <Box  
             height={25}
             width={100}
             my={4}
@@ -322,15 +312,19 @@ return (
                 onChange={handleInput}
                 value={newCareMethod}
             />
-        </Box>
+        </Box> */}
         
        
     
     </Box> 
 
-    <Button variant="contained" onClick={submitPreferences}>Save Preferences</Button>
+    <Button variant="contained" sx={{backgroundColor: '#AE9C8E'}} onClick={submitPreferences}>Save Preferences</Button>
     </Container>
+
 </Container>
+
+
+
 
 )
 

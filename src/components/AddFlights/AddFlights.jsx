@@ -95,7 +95,7 @@ return (
     </Container>
 
     <Container>
-         <Button onClick={submitNewFlight} variant="contained">Submit Flight</Button>
+         <Button onClick={submitNewFlight} sx={{backgroundColor: '#AE9C8E'}} variant="contained">Submit Flight</Button>
     </Container>
 
     <Modal open={showModal} onClose={handleModalCloseYes}>

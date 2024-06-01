@@ -40,14 +40,14 @@ return(
                         p={2} 
                         m={3}
                         sx={{ 
-                            border: '2px solid grey', backgroundColor: '#C9C9CB'
+                            border: '2px solid grey', backgroundColor: 'white'
                         }}
                         > 
                         <Typography m={2} fontSize={24} variant='h3'>Flight Name: {flight.flight_title}</Typography>
                         <Typography m={2}>Flight Date: {dayjs(flight.flight_date).format('MMMM DD, YYYY')}</Typography>
                         <Typography m={2}>Details: {flight.flight_details}</Typography>
-                            <Button onClick={() => deleteFlight(flight)} variant="outlined">Delete</Button>
-                            <Button onClick={() => editFlight(flight)} variant="outlined">Edit</Button>
+                            <Button onClick={() => deleteFlight(flight)} sx={{ mb: 2, mr: 2, color: '#AE9C8E', borderColor: '#AE9C8E'}} variant="outlined">Delete</Button>
+                            <Button onClick={() => editFlight(flight)} sx={{ mb: 2, color: '#AE9C8E', borderColor: '#AE9C8E'}} variant="outlined">Edit</Button>
                         </Box>
                 );
             })

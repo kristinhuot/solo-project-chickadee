@@ -112,7 +112,7 @@ function EditFlight() {
           </Container>
         </FormControl>
         <Container>
-          <Button sx={{mb:2, mt: 4}} onClick={updateFlight} variant="contained">
+          <Button sx={{mb:2, mt: 4, backgroundColor: '#AE9C8E'}} onClick={updateFlight} variant="contained">
             Submit Changes
           </Button>
         </Container>
