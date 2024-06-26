@@ -31,9 +31,9 @@ Chickadees are small songbirds that form complex social hierarchies and maintain
 - Nodemon
 
 ## Development SetUp: 
-Run npm install
-Create .env file to set-up server session key 
-Create database called prime_app in PostgreSQL and set up tables as per database.sql file
-Run npm run server to start the server
-Run npm run client to start the client
-Navigate to localhost:5173
+- Run npm install
+- Create .env file to set-up server session key 
+- Create database called prime_app in PostgreSQL and set up tables as per database.sql file
+- Run npm run server to start the server
+- Run npm run client to start the client
+- Navigate to localhost:5173
