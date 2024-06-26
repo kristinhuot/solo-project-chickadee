@@ -26,9 +26,9 @@ Chickadees are small songbirds that form complex social hierarchies and maintain
 </div>
 
 ## Required software:
-Node.js
-PostgreSQL
-Nodemon
+- Node.js
+- PostgreSQL
+- Nodemon
 
 ## Development SetUp: 
 Run npm install
