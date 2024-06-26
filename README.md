@@ -6,8 +6,6 @@ Users create a profile, indicating the ways in which they most prefer to receive
 
 Chickadees are small songbirds that form complex social hierarchies and maintain strong friendships within their flock. Their distinctive call is often used to keep the flock together. Similarly, the Chickadee app is intended to keep connections close, no matter how far away they may be from the people that matter most to them. 
 
-Technnologies Used: JavaScript, HTML, CSS, React, Redux, Saga, SQL, Node, Express, Passport, PostgreSQL, MUI
-
 ## 🛠️ Languages and Tools Used
 <div>
  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
