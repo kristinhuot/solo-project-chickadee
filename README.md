@@ -25,8 +25,15 @@ Chickadees are small songbirds that form complex social hierarchies and maintain
   <img src="https://github.com/devicons/devicon/blob/master/icons/trello/trello-original.svg" title="Trello" **alt="Trello" width="40" height="40"/>
 </div>
 
+## Required software:
+Node.js
+PostgreSQL
+Nodemon
 
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2.
+## Development SetUp: 
+-Run npm install
+-Create .env file to set-up server session key 
+-Create database called prime_app in PostgreSQL and set up tables as per database.sql file
+-Run npm run server to start the server
+-Run npm run client to start the client
+-Navigate to localhost:5173
